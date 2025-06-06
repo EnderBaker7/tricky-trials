@@ -7,6 +7,7 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -72,20 +73,28 @@ public class TrickyTrials {
 
     }
 
+    private static void registerCutout(Block block) {
+        ItemBlockRenderTypes.setRenderLayer(block, RenderType.cutout());
+    }
+
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             event.enqueueWork(() -> {
-               ItemBlockRenderTypes.setRenderLayer(TTBlocks.COPPER_GRATE.get(), RenderType.cutout());
-               ItemBlockRenderTypes.setRenderLayer(TTBlocks.EXPOSED_COPPER_GRATE.get(), RenderType.cutout());
-               ItemBlockRenderTypes.setRenderLayer(TTBlocks.WEATHERED_COPPER_GRATE.get(), RenderType.cutout());
-               ItemBlockRenderTypes.setRenderLayer(TTBlocks.OXIDIZED_COPPER_GRATE.get(), RenderType.cutout());
-               ItemBlockRenderTypes.setRenderLayer(TTBlocks.WAXED_COPPER_GRATE.get(), RenderType.cutout());
-               ItemBlockRenderTypes.setRenderLayer(TTBlocks.WAXED_EXPOSED_COPPER_GRATE.get(), RenderType.cutout());
-               ItemBlockRenderTypes.setRenderLayer(TTBlocks.WAXED_WEATHERED_COPPER_GRATE.get(), RenderType.cutout());
-               ItemBlockRenderTypes.setRenderLayer(TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get(), RenderType.cutout());
+               registerCutout(TTBlocks.COPPER_GRATE.get());
+               registerCutout(TTBlocks.EXPOSED_COPPER_GRATE.get());
+               registerCutout(TTBlocks.WEATHERED_COPPER_GRATE.get());
+               registerCutout(TTBlocks.OXIDIZED_COPPER_GRATE.get());
+               registerCutout(TTBlocks.WAXED_COPPER_GRATE.get());
+               registerCutout(TTBlocks.WAXED_EXPOSED_COPPER_GRATE.get());
+               registerCutout(TTBlocks.WAXED_WEATHERED_COPPER_GRATE.get());
+               registerCutout(TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get());
+               registerCutout(TTBlocks.COPPER_DOOR.get());
+               registerCutout(TTBlocks.EXPOSED_COPPER_DOOR.get());
+               registerCutout(TTBlocks.WEATHERED_COPPER_DOOR.get());
+               registerCutout(TTBlocks.OXIDIZED_COPPER_DOOR.get());
             });
         }
     }

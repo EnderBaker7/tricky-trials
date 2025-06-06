@@ -48,5 +48,8 @@ public class TTItemModelProvider extends ItemModelProvider {
         withExistingParent(TTItems.WAXED_OXIDIZED_COPPER_GRATE.getId().getPath(), modLoc("block/waxed_oxidized_copper_grate"));
 
         registerDoorItemModel(TTItems.COPPER_DOOR.getId().getPath());
+        registerDoorItemModel(TTItems.EXPOSED_COPPER_DOOR.getId().getPath());
+        registerDoorItemModel(TTItems.WEATHERED_COPPER_DOOR.getId().getPath());
+        registerDoorItemModel(TTItems.OXIDIZED_COPPER_DOOR.getId().getPath());
     }
 }

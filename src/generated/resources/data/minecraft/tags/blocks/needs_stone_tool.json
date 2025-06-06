@@ -24,6 +24,9 @@
     "trickytrials:waxed_exposed_copper_grate",
     "trickytrials:waxed_weathered_copper_grate",
     "trickytrials:waxed_oxidized_copper_grate",
-    "trickytrials:copper_door"
+    "trickytrials:copper_door",
+    "trickytrials:exposed_copper_door",
+    "trickytrials:weathered_copper_door",
+    "trickytrials:oxidized_copper_door"
   ]
 }

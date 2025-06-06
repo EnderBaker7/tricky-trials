@@ -56,6 +56,12 @@
 
   "block.trickytrials.copper_door": "Copper Door",
   "item.trickytrials.copper_door": "Copper Door",
+  "block.trickytrials.exposed_copper_door": "Exposed Copper Door",
+  "item.trickytrials.exposed_copper_door": "Exposed Copper Door",
+  "block.trickytrials.weathered_copper_door": "Weathered Copper Door",
+  "item.trickytrials.weathered_copper_door": "Weathered Copper Door",
+  "block.trickytrials.oxidized_copper_door": "Oxidized Copper Door",
+  "item.trickytrials.oxidized_copper_door": "Oxidized Copper Door",
 
   "subtitles.block.copper_bulb.click": "Bulb clicks"
 }

@@ -51,6 +51,9 @@ public class TTCreative {
                         output.accept(TTItems.WAXED_OXIDIZED_COPPER_GRATE.get());
 
                         output.accept(TTItems.COPPER_DOOR.get());
+                        output.accept(TTItems.EXPOSED_COPPER_DOOR.get());
+                        output.accept(TTItems.WEATHERED_COPPER_DOOR.get());
+                        output.accept(TTItems.OXIDIZED_COPPER_DOOR.get());
                     })
                     .build());
 

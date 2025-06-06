@@ -67,6 +67,9 @@ public class TTLootTableProvider extends LootTableProvider {
             this.dropSelf(TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get());
 
             this.add(TTBlocks.COPPER_DOOR.get(), block -> createSinglePropConditionTable(block, DoorBlock.HALF, DoubleBlockHalf.LOWER));
+            this.add(TTBlocks.EXPOSED_COPPER_DOOR.get(), block -> createSinglePropConditionTable(block, DoorBlock.HALF, DoubleBlockHalf.LOWER));
+            this.add(TTBlocks.WEATHERED_COPPER_DOOR.get(), block -> createSinglePropConditionTable(block, DoorBlock.HALF, DoubleBlockHalf.LOWER));
+            this.add(TTBlocks.OXIDIZED_COPPER_DOOR.get(), block -> createSinglePropConditionTable(block, DoorBlock.HALF, DoubleBlockHalf.LOWER));
         }
 
         @Override
