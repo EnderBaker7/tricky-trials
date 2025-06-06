@@ -33,5 +33,13 @@ public class TTItemModelProvider extends ItemModelProvider {
         withExistingParent(TTItems.WAXED_OXIDIZED_COPPER_BULB.getId().getPath(), modLoc("block/waxed_oxidized_copper_bulb_off"));
 
         withExistingParent(TTItems.COPPER_GRATE.getId().getPath(), modLoc("block/copper_grate"));
+        withExistingParent(TTItems.EXPOSED_COPPER_GRATE.getId().getPath(), modLoc("block/exposed_copper_grate"));
+        withExistingParent(TTItems.WEATHERED_COPPER_GRATE.getId().getPath(), modLoc("block/weathered_copper_grate"));
+        withExistingParent(TTItems.OXIDIZED_COPPER_GRATE.getId().getPath(), modLoc("block/oxidized_copper_grate"));
+
+        withExistingParent(TTItems.WAXED_COPPER_GRATE.getId().getPath(), modLoc("block/waxed_copper_grate"));
+        withExistingParent(TTItems.WAXED_EXPOSED_COPPER_GRATE.getId().getPath(), modLoc("block/waxed_exposed_copper_grate"));
+        withExistingParent(TTItems.WAXED_WEATHERED_COPPER_GRATE.getId().getPath(), modLoc("block/waxed_weathered_copper_grate"));
+        withExistingParent(TTItems.WAXED_OXIDIZED_COPPER_GRATE.getId().getPath(), modLoc("block/waxed_oxidized_copper_grate"));
     }
 }

@@ -39,7 +39,15 @@ public class TTBlockTagProvider extends BlockTagsProvider {
                         TTBlocks.WAXED_WEATHERED_COPPER_BULB.get(),
                         TTBlocks.WAXED_OXIDIZED_COPPER_BULB.get(),
 
-                        TTBlocks.COPPER_GRATE.get()
+                        TTBlocks.COPPER_GRATE.get(),
+                        TTBlocks.EXPOSED_COPPER_GRATE.get(),
+                        TTBlocks.WEATHERED_COPPER_GRATE.get(),
+                        TTBlocks.OXIDIZED_COPPER_GRATE.get(),
+
+                        TTBlocks.WAXED_COPPER_GRATE.get(),
+                        TTBlocks.WAXED_EXPOSED_COPPER_GRATE.get(),
+                        TTBlocks.WAXED_WEATHERED_COPPER_GRATE.get(),
+                        TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get()
                 );
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
@@ -64,7 +72,15 @@ public class TTBlockTagProvider extends BlockTagsProvider {
                         TTBlocks.WAXED_WEATHERED_COPPER_BULB.get(),
                         TTBlocks.WAXED_OXIDIZED_COPPER_BULB.get(),
 
-                        TTBlocks.COPPER_GRATE.get()
+                        TTBlocks.COPPER_GRATE.get(),
+                        TTBlocks.EXPOSED_COPPER_GRATE.get(),
+                        TTBlocks.WEATHERED_COPPER_GRATE.get(),
+                        TTBlocks.OXIDIZED_COPPER_GRATE.get(),
+
+                        TTBlocks.WAXED_COPPER_GRATE.get(),
+                        TTBlocks.WAXED_EXPOSED_COPPER_GRATE.get(),
+                        TTBlocks.WAXED_WEATHERED_COPPER_GRATE.get(),
+                        TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get()
                 );
     }
 }

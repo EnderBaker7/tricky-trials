@@ -1,6 +1,7 @@
 package com.ender.trickytrials;
 
 import com.ender.trickytrials.content.BaseCopperBulbBlock;
+import com.ender.trickytrials.content.BaseCopperGrateBlock;
 import com.ender.trickytrials.content.TTBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
@@ -27,6 +28,7 @@ public class ItemUseHandler {
 
     private static final BooleanProperty LIT = BaseCopperBulbBlock.LIT;
     private static final BooleanProperty POWERED = BaseCopperBulbBlock.POWERED;
+    private static final BooleanProperty WATERLOGGED = BaseCopperGrateBlock.WATERLOGGED;
 
     @SubscribeEvent
     public static void onItemUse(PlayerInteractEvent.RightClickBlock event) {
@@ -62,6 +64,10 @@ public class ItemUseHandler {
                         .setValue(POWERED, currentState.getValue(POWERED));
             }
 
+            if (nextBlock instanceof BaseCopperGrateBlock) {
+                nextState = nextState.setValue(WATERLOGGED, currentState.getValue(WATERLOGGED));
+            }
+
             if (!level.isClientSide()) {
                 level.setBlock(pos, nextState, 3);
                 level.levelEvent(pType, pos, 0);
@@ -84,38 +90,52 @@ public class ItemUseHandler {
         }
     }
 
-    private static final Supplier<Map<Block, Block>> TOWAXED = () -> Map.of(
-            TTBlocks.CHISELED_COPPER.get(), TTBlocks.WAXED_CHISELED_COPPER.get(),
-            TTBlocks.EXPOSED_CHISELED_COPPER.get(), TTBlocks.WAXED_EXPOSED_CHISELED_COPPER.get(),
-            TTBlocks.WEATHERED_CHISELED_COPPER.get(), TTBlocks.WAXED_WEATHERED_CHISELED_COPPER.get(),
-            TTBlocks.OXIDIZED_CHISELED_COPPER.get(), TTBlocks.WAXED_OXIDIZED_CHISELED_COPPER.get(),
+    private static final Supplier<Map<Block, Block>> TOWAXED = () -> Map.ofEntries(
+            Map.entry(TTBlocks.CHISELED_COPPER.get(), TTBlocks.WAXED_CHISELED_COPPER.get()),
+            Map.entry(TTBlocks.EXPOSED_CHISELED_COPPER.get(), TTBlocks.WAXED_EXPOSED_CHISELED_COPPER.get()),
+            Map.entry(TTBlocks.WEATHERED_CHISELED_COPPER.get(), TTBlocks.WAXED_WEATHERED_CHISELED_COPPER.get()),
+            Map.entry(TTBlocks.OXIDIZED_CHISELED_COPPER.get(), TTBlocks.WAXED_OXIDIZED_CHISELED_COPPER.get()),
 
-            TTBlocks.COPPER_BULB.get(), TTBlocks.WAXED_COPPER_BULB.get(),
-            TTBlocks.EXPOSED_COPPER_BULB.get(), TTBlocks.WAXED_EXPOSED_COPPER_BULB.get(),
-            TTBlocks.WEATHERED_COPPER_BULB.get(), TTBlocks.WAXED_WEATHERED_COPPER_BULB.get(),
-            TTBlocks.OXIDIZED_COPPER_BULB.get(), TTBlocks.WAXED_OXIDIZED_COPPER_BULB.get()
+            Map.entry(TTBlocks.COPPER_BULB.get(), TTBlocks.WAXED_COPPER_BULB.get()),
+            Map.entry(TTBlocks.EXPOSED_COPPER_BULB.get(), TTBlocks.WAXED_EXPOSED_COPPER_BULB.get()),
+            Map.entry(TTBlocks.WEATHERED_COPPER_BULB.get(), TTBlocks.WAXED_WEATHERED_COPPER_BULB.get()),
+            Map.entry(TTBlocks.OXIDIZED_COPPER_BULB.get(), TTBlocks.WAXED_OXIDIZED_COPPER_BULB.get()),
+
+            Map.entry(TTBlocks.COPPER_GRATE.get(), TTBlocks.WAXED_COPPER_GRATE.get()),
+            Map.entry(TTBlocks.EXPOSED_COPPER_GRATE.get(), TTBlocks.WAXED_EXPOSED_COPPER_GRATE.get()),
+            Map.entry(TTBlocks.WEATHERED_COPPER_GRATE.get(), TTBlocks.WAXED_WEATHERED_COPPER_GRATE.get()),
+            Map.entry(TTBlocks.OXIDIZED_COPPER_GRATE.get(), TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get())
     );
 
-    private static final Supplier<Map<Block, Block>> WAXSCRAPE = () -> Map.of(
-            TTBlocks.WAXED_CHISELED_COPPER.get(), TTBlocks.CHISELED_COPPER.get(),
-            TTBlocks.WAXED_EXPOSED_CHISELED_COPPER.get(), TTBlocks.EXPOSED_CHISELED_COPPER.get(),
-            TTBlocks.WAXED_WEATHERED_CHISELED_COPPER.get(), TTBlocks.WEATHERED_CHISELED_COPPER.get(),
-            TTBlocks.WAXED_OXIDIZED_CHISELED_COPPER.get(), TTBlocks.OXIDIZED_CHISELED_COPPER.get(),
+    private static final Supplier<Map<Block, Block>> WAXSCRAPE = () -> Map.ofEntries(
+            Map.entry(TTBlocks.WAXED_CHISELED_COPPER.get(), TTBlocks.CHISELED_COPPER.get()),
+            Map.entry(TTBlocks.WAXED_EXPOSED_CHISELED_COPPER.get(), TTBlocks.EXPOSED_CHISELED_COPPER.get()),
+            Map.entry(TTBlocks.WAXED_WEATHERED_CHISELED_COPPER.get(), TTBlocks.WEATHERED_CHISELED_COPPER.get()),
+            Map.entry(TTBlocks.WAXED_OXIDIZED_CHISELED_COPPER.get(), TTBlocks.OXIDIZED_CHISELED_COPPER.get()),
 
-            TTBlocks.WAXED_COPPER_BULB.get(), TTBlocks.COPPER_BULB.get(),
-            TTBlocks.WAXED_EXPOSED_COPPER_BULB.get(), TTBlocks.EXPOSED_COPPER_BULB.get(),
-            TTBlocks.WAXED_WEATHERED_COPPER_BULB.get(), TTBlocks.WEATHERED_COPPER_BULB.get(),
-            TTBlocks.WAXED_OXIDIZED_COPPER_BULB.get(), TTBlocks.OXIDIZED_COPPER_BULB.get()
+            Map.entry(TTBlocks.WAXED_COPPER_BULB.get(), TTBlocks.COPPER_BULB.get()),
+            Map.entry(TTBlocks.WAXED_EXPOSED_COPPER_BULB.get(), TTBlocks.EXPOSED_COPPER_BULB.get()),
+            Map.entry(TTBlocks.WAXED_WEATHERED_COPPER_BULB.get(), TTBlocks.WEATHERED_COPPER_BULB.get()),
+            Map.entry(TTBlocks.WAXED_OXIDIZED_COPPER_BULB.get(), TTBlocks.OXIDIZED_COPPER_BULB.get()),
+
+            Map.entry(TTBlocks.WAXED_COPPER_GRATE.get(), TTBlocks.COPPER_GRATE.get()),
+            Map.entry(TTBlocks.WAXED_EXPOSED_COPPER_GRATE.get(), TTBlocks.EXPOSED_COPPER_GRATE.get()),
+            Map.entry(TTBlocks.WAXED_WEATHERED_COPPER_GRATE.get(), TTBlocks.WEATHERED_COPPER_GRATE.get()),
+            Map.entry(TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get(), TTBlocks.OXIDIZED_COPPER_GRATE.get())
     );
 
-    private static final Supplier<Map<Block, Block>> OXISCRAPE = () -> Map.of(
-            TTBlocks.OXIDIZED_CHISELED_COPPER.get(), TTBlocks.WEATHERED_CHISELED_COPPER.get(),
-            TTBlocks.WEATHERED_CHISELED_COPPER.get(), TTBlocks.EXPOSED_CHISELED_COPPER.get(),
-            TTBlocks.EXPOSED_CHISELED_COPPER.get(), TTBlocks.CHISELED_COPPER.get(),
+    private static final Supplier<Map<Block, Block>> OXISCRAPE = () -> Map.ofEntries(
+            Map.entry(TTBlocks.OXIDIZED_CHISELED_COPPER.get(), TTBlocks.WEATHERED_CHISELED_COPPER.get()),
+            Map.entry(TTBlocks.WEATHERED_CHISELED_COPPER.get(), TTBlocks.EXPOSED_CHISELED_COPPER.get()),
+            Map.entry(TTBlocks.EXPOSED_CHISELED_COPPER.get(), TTBlocks.CHISELED_COPPER.get()),
 
-            TTBlocks.EXPOSED_COPPER_BULB.get(), TTBlocks.COPPER_BULB.get(),
-            TTBlocks.WEATHERED_COPPER_BULB.get(), TTBlocks.EXPOSED_COPPER_BULB.get(),
-            TTBlocks.OXIDIZED_COPPER_BULB.get(), TTBlocks.WEATHERED_COPPER_BULB.get()
+            Map.entry(TTBlocks.EXPOSED_COPPER_BULB.get(), TTBlocks.COPPER_BULB.get()),
+            Map.entry(TTBlocks.WEATHERED_COPPER_BULB.get(), TTBlocks.EXPOSED_COPPER_BULB.get()),
+            Map.entry(TTBlocks.OXIDIZED_COPPER_BULB.get(), TTBlocks.WEATHERED_COPPER_BULB.get()),
+
+            Map.entry(TTBlocks.EXPOSED_COPPER_GRATE.get(), TTBlocks.COPPER_GRATE.get()),
+            Map.entry(TTBlocks.WEATHERED_COPPER_GRATE.get(), TTBlocks.EXPOSED_COPPER_GRATE.get()),
+            Map.entry(TTBlocks.OXIDIZED_COPPER_GRATE.get(), TTBlocks.WEATHERED_COPPER_GRATE.get())
     );
 
     private static Block getWaxedBlock(Block block) {

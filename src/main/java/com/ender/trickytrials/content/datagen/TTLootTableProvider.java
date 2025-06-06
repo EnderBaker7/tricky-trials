@@ -51,6 +51,14 @@ public class TTLootTableProvider extends LootTableProvider {
             this.dropSelf(TTBlocks.WAXED_OXIDIZED_COPPER_BULB.get());
 
             this.dropSelf(TTBlocks.COPPER_GRATE.get());
+            this.dropSelf(TTBlocks.EXPOSED_COPPER_GRATE.get());
+            this.dropSelf(TTBlocks.WEATHERED_COPPER_GRATE.get());
+            this.dropSelf(TTBlocks.OXIDIZED_COPPER_GRATE.get());
+
+            this.dropSelf(TTBlocks.WAXED_COPPER_GRATE.get());
+            this.dropSelf(TTBlocks.WAXED_EXPOSED_COPPER_GRATE.get());
+            this.dropSelf(TTBlocks.WAXED_WEATHERED_COPPER_GRATE.get());
+            this.dropSelf(TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get());
         }
 
         @Override

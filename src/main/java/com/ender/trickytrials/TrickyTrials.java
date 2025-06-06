@@ -4,6 +4,8 @@ import com.ender.trickytrials.content.*;
 import com.ender.trickytrials.content.weathering.WeatheringCopperBlock;
 import com.ender.trickytrials.content.weathering.WeatheringStage;
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraftforge.api.distmarker.Dist;
@@ -75,7 +77,16 @@ public class TrickyTrials {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            event.enqueueWork(() -> {
+               ItemBlockRenderTypes.setRenderLayer(TTBlocks.COPPER_GRATE.get(), RenderType.cutout());
+               ItemBlockRenderTypes.setRenderLayer(TTBlocks.EXPOSED_COPPER_GRATE.get(), RenderType.cutout());
+               ItemBlockRenderTypes.setRenderLayer(TTBlocks.WEATHERED_COPPER_GRATE.get(), RenderType.cutout());
+               ItemBlockRenderTypes.setRenderLayer(TTBlocks.OXIDIZED_COPPER_GRATE.get(), RenderType.cutout());
+               ItemBlockRenderTypes.setRenderLayer(TTBlocks.WAXED_COPPER_GRATE.get(), RenderType.cutout());
+               ItemBlockRenderTypes.setRenderLayer(TTBlocks.WAXED_EXPOSED_COPPER_GRATE.get(), RenderType.cutout());
+               ItemBlockRenderTypes.setRenderLayer(TTBlocks.WAXED_WEATHERED_COPPER_GRATE.get(), RenderType.cutout());
+               ItemBlockRenderTypes.setRenderLayer(TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get(), RenderType.cutout());
+            });
         }
     }
 }

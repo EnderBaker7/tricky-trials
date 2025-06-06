@@ -56,5 +56,13 @@ public class TTBlockStateProvider extends BlockStateProvider {
         registerBulbStatesAndModels(TTBlocks.WAXED_OXIDIZED_COPPER_BULB, "oxidized_", "waxed_");
 
         simpleBlock(TTBlocks.COPPER_GRATE.get());
+        simpleBlock(TTBlocks.EXPOSED_COPPER_GRATE.get());
+        simpleBlock(TTBlocks.WEATHERED_COPPER_GRATE.get());
+        simpleBlock(TTBlocks.OXIDIZED_COPPER_GRATE.get());
+
+        simpleBlock(TTBlocks.WAXED_COPPER_GRATE.get(), models().cubeAll("waxed_copper_grate", modLoc("block/copper_grate")));
+        simpleBlock(TTBlocks.WAXED_EXPOSED_COPPER_GRATE.get(), models().cubeAll("waxed_exposed_copper_grate", modLoc("block/exposed_copper_grate")));
+        simpleBlock(TTBlocks.WAXED_WEATHERED_COPPER_GRATE.get(), models().cubeAll("waxed_weathered_copper_grate", modLoc("block/weathered_copper_grate")));
+        simpleBlock(TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get(), models().cubeAll("waxed_oxidized_copper_grate", modLoc("block/oxidized_copper_grate")));
     }
 }

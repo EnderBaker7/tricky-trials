@@ -13,8 +13,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.function.Supplier;
-
 public class TTBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(Registries.BLOCK, TrickyTrials.MODID);
 
@@ -67,7 +65,21 @@ public class TTBlocks {
             () -> new BaseCopperBulbBlock(copyBulbProperties(OXIDIZED_COPPER_BULB)));
 
     public static final RegistryObject<Block> COPPER_GRATE = BLOCKS.register("copper_grate",
-            () -> new CopperGrateBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK).noOcclusion().sound(TTSoundEvents.COPPER_GRATE.get())));
+            () -> new CopperGrateBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
+    public static final RegistryObject<Block> EXPOSED_COPPER_GRATE = BLOCKS.register("exposed_copper_grate",
+            () -> new CopperGrateBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.copy(Blocks.EXPOSED_COPPER)));
+    public static final RegistryObject<Block> WEATHERED_COPPER_GRATE = BLOCKS.register("weathered_copper_grate",
+            () -> new CopperGrateBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.copy(Blocks.WEATHERED_COPPER)));
+    public static final RegistryObject<Block> OXIDIZED_COPPER_GRATE = BLOCKS.register("oxidized_copper_grate",
+            () -> new CopperGrateBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.copy(Blocks.OXIDIZED_COPPER)));
+    public static final RegistryObject<Block> WAXED_COPPER_GRATE = BLOCKS.register("waxed_copper_grate",
+            () -> new BaseCopperGrateBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
+    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_GRATE = BLOCKS.register("waxed_exposed_copper_grate",
+            () -> new BaseCopperGrateBlock(BlockBehaviour.Properties.copy(Blocks.EXPOSED_COPPER)));
+    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_GRATE = BLOCKS.register("waxed_weathered_copper_grate",
+            () -> new BaseCopperGrateBlock(BlockBehaviour.Properties.copy(Blocks.WEATHERED_COPPER)));
+    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_GRATE = BLOCKS.register("waxed_oxidized_copper_grate",
+            () -> new BaseCopperGrateBlock(BlockBehaviour.Properties.copy(Blocks.OXIDIZED_COPPER)));
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);

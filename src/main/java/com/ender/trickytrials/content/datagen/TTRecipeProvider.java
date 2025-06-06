@@ -111,5 +111,13 @@ public class TTRecipeProvider extends RecipeProvider {
         buildBulbRecipes(consumer, TTBlocks.WAXED_OXIDIZED_COPPER_BULB, Items.WAXED_OXIDIZED_COPPER, TTItems.OXIDIZED_COPPER_BULB, "waxed_oxidized_");
 
         buildGrateRecipes(consumer, TTBlocks.COPPER_GRATE, Items.COPPER_BLOCK, null, "");
+        buildGrateRecipes(consumer, TTBlocks.EXPOSED_COPPER_GRATE, Items.EXPOSED_COPPER, null, "exposed_");
+        buildGrateRecipes(consumer, TTBlocks.WEATHERED_COPPER_GRATE, Items.WEATHERED_COPPER, null, "weathered_");
+        buildGrateRecipes(consumer, TTBlocks.OXIDIZED_COPPER_GRATE, Items.OXIDIZED_COPPER, null, "oxidized_");
+
+        buildGrateRecipes(consumer, TTBlocks.WAXED_COPPER_GRATE, Items.WAXED_COPPER_BLOCK, TTItems.COPPER_GRATE, "waxed_");
+        buildGrateRecipes(consumer, TTBlocks.WAXED_EXPOSED_COPPER_GRATE, Items.WAXED_EXPOSED_COPPER, TTItems.EXPOSED_COPPER_GRATE, "waxed_exposed_");
+        buildGrateRecipes(consumer, TTBlocks.WAXED_WEATHERED_COPPER_GRATE, Items.WAXED_WEATHERED_COPPER, TTItems.WEATHERED_COPPER_GRATE, "waxed_weathered_");
+        buildGrateRecipes(consumer, TTBlocks.WAXED_OXIDIZED_COPPER_GRATE, Items.WAXED_OXIDIZED_COPPER, TTItems.OXIDIZED_COPPER_GRATE, "waxed_oxidized_");
     }
 }

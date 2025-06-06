@@ -1,53 +1,48 @@
 package com.ender.trickytrials.content;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.Level;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
 
-public class CopperGrateBlock extends Block implements SimpleWaterloggedBlock {
-    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+import java.util.Optional;
 
-    public CopperGrateBlock(Properties properties) {
-        super(properties.noOcclusion());
-        this.registerDefaultState(this.defaultBlockState().setValue(WATERLOGGED, false));
+public class CopperGrateBlock extends BaseCopperGrateBlock implements WeatheringCopper {
+    private final WeatheringCopper.WeatherState weatherState;
+
+    public CopperGrateBlock(WeatheringCopper.WeatherState state, Properties properties) {
+        super(properties.noOcclusion().sound(TTSoundEvents.COPPER_GRATE.get()));
+        this.weatherState = state;
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(WATERLOGGED);
+    public WeatheringCopper.WeatherState getAge() {
+        return this.weatherState;
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
-        FluidState fluidState = context.getLevel().getFluidState(context.getClickedPos());
-        return this.defaultBlockState().setValue(WATERLOGGED, fluidState.getType() == Fluids.WATER);
+    public boolean isRandomlyTicking(BlockState state) {
+        return this.getNext(state).isPresent();
     }
 
     @Override
-    public void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean isMoving) {
-        if (state.getValue(WATERLOGGED)) {
-            level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource source) {
+        Block block = state.getBlock();
+        if (block instanceof WeatheringCopper weatheringCopper) {
+            Optional<BlockState> nextState = weatheringCopper.getNext(state);
+            nextState.ifPresent(blockState -> level.setBlockAndUpdate(pos, blockState.setValue(WATERLOGGED, state.getValue(WATERLOGGED))));
         }
     }
 
     @Override
-    public FluidState getFluidState(BlockState state) {
-        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
-    }
-
-    @Override
-    public void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos fromPos, boolean isMoving) {
-        if (state.getValue(WATERLOGGED)) {
-            level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
-        }
-        super.neighborChanged(state, level, pos, block, fromPos, isMoving);
+    public Optional<BlockState> getNext(BlockState state) {
+        return switch (this.weatherState) {
+            case UNAFFECTED -> Optional.of(TTBlocks.EXPOSED_COPPER_GRATE.get().defaultBlockState().setValue(WATERLOGGED, state.getValue(WATERLOGGED)));
+            case EXPOSED -> Optional.of(TTBlocks.WEATHERED_COPPER_GRATE.get().defaultBlockState().setValue(WATERLOGGED, state.getValue(WATERLOGGED)));
+            case WEATHERED -> Optional.of(TTBlocks.OXIDIZED_COPPER_GRATE.get().defaultBlockState().setValue(WATERLOGGED, state.getValue(WATERLOGGED)));
+            default -> Optional.empty();
+        };
     }
 }

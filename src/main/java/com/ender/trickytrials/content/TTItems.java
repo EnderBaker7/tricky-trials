@@ -32,6 +32,13 @@ public class TTItems {
     public static final RegistryObject<Item> WAXED_WEATHERED_COPPER_BULB = registerBlockItems("waxed_weathered_copper_bulb", TTBlocks.WAXED_WEATHERED_COPPER_BULB);
     public static final RegistryObject<Item> WAXED_OXIDIZED_COPPER_BULB = registerBlockItems("waxed_oxidized_copper_bulb", TTBlocks.WAXED_OXIDIZED_COPPER_BULB);
     public static final RegistryObject<Item> COPPER_GRATE = registerBlockItems("copper_grate", TTBlocks.COPPER_GRATE);
+    public static final RegistryObject<Item> EXPOSED_COPPER_GRATE = registerBlockItems("exposed_copper_grate", TTBlocks.EXPOSED_COPPER_GRATE);
+    public static final RegistryObject<Item> WEATHERED_COPPER_GRATE = registerBlockItems("weathered_copper_grate", TTBlocks.WEATHERED_COPPER_GRATE);
+    public static final RegistryObject<Item> OXIDIZED_COPPER_GRATE = registerBlockItems("oxidized_copper_grate", TTBlocks.OXIDIZED_COPPER_GRATE);
+    public static final RegistryObject<Item> WAXED_COPPER_GRATE = registerBlockItems("waxed_copper_grate", TTBlocks.WAXED_COPPER_GRATE);
+    public static final RegistryObject<Item> WAXED_EXPOSED_COPPER_GRATE = registerBlockItems("waxed_exposed_copper_grate", TTBlocks.WAXED_EXPOSED_COPPER_GRATE);
+    public static final RegistryObject<Item> WAXED_WEATHERED_COPPER_GRATE = registerBlockItems("waxed_weathered_copper_grate", TTBlocks.WAXED_WEATHERED_COPPER_GRATE);
+    public static final RegistryObject<Item> WAXED_OXIDIZED_COPPER_GRATE = registerBlockItems("waxed_oxidized_copper_grate", TTBlocks.WAXED_OXIDIZED_COPPER_GRATE);
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

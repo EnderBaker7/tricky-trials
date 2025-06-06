@@ -16,6 +16,13 @@
     "trickytrials:waxed_exposed_copper_bulb",
     "trickytrials:waxed_weathered_copper_bulb",
     "trickytrials:waxed_oxidized_copper_bulb",
-    "trickytrials:copper_grate"
+    "trickytrials:copper_grate",
+    "trickytrials:exposed_copper_grate",
+    "trickytrials:weathered_copper_grate",
+    "trickytrials:oxidized_copper_grate",
+    "trickytrials:waxed_copper_grate",
+    "trickytrials:waxed_exposed_copper_grate",
+    "trickytrials:waxed_weathered_copper_grate",
+    "trickytrials:waxed_oxidized_copper_grate"
   ]
 }

@@ -38,6 +38,21 @@
 
   "block.trickytrials.copper_grate": "Copper Grate",
   "item.trickytrials.copper_grate": "Copper Grate",
+  "block.trickytrials.exposed_copper_grate": "Exposed Copper Grate",
+  "item.trickytrials.exposed_copper_grate": "Exposed Copper Grate",
+  "block.trickytrials.weathered_copper_grate": "Weathered Copper Grate",
+  "item.trickytrials.weathered_copper_grate": "Weathered Copper Grate",
+  "block.trickytrials.oxidized_copper_grate": "Oxidized Copper Grate",
+  "item.trickytrials.oxidized_copper_grate": "Oxidized Copper Grate",
+
+  "block.trickytrials.waxed_copper_grate": "Waxed Copper Grate",
+  "item.trickytrials.waxed_copper_grate": "Waxed Copper Grate",
+  "block.trickytrials.waxed_exposed_copper_grate": "Waxed Exposed Copper Grate",
+  "item.trickytrials.waxed_exposed_copper_grate": "Waxed Exposed Copper Grate",
+  "block.trickytrials.waxed_weathered_copper_grate": "Waxed Weathered Copper Grate",
+  "item.trickytrials.waxed_weathered_copper_grate": "Waxed Weathered Copper Grate",
+  "block.trickytrials.waxed_oxidized_copper_grate": "Waxed Oxidized Copper Grate",
+  "item.trickytrials.waxed_oxidized_copper_grate": "Waxed Oxidized Copper Grate",
 
   "subtitles.block.copper_bulb.click": "Bulb clicks"
 }
