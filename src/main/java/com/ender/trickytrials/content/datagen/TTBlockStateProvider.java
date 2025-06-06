@@ -64,5 +64,7 @@ public class TTBlockStateProvider extends BlockStateProvider {
         simpleBlock(TTBlocks.WAXED_EXPOSED_COPPER_GRATE.get(), models().cubeAll("waxed_exposed_copper_grate", modLoc("block/exposed_copper_grate")));
         simpleBlock(TTBlocks.WAXED_WEATHERED_COPPER_GRATE.get(), models().cubeAll("waxed_weathered_copper_grate", modLoc("block/weathered_copper_grate")));
         simpleBlock(TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get(), models().cubeAll("waxed_oxidized_copper_grate", modLoc("block/oxidized_copper_grate")));
+
+        doorBlock(TTBlocks.COPPER_DOOR.get(), modLoc("block/copper_door_bottom"), modLoc("block/copper_door_top"));
     }
 }

@@ -47,7 +47,9 @@ public class TTBlockTagProvider extends BlockTagsProvider {
                         TTBlocks.WAXED_COPPER_GRATE.get(),
                         TTBlocks.WAXED_EXPOSED_COPPER_GRATE.get(),
                         TTBlocks.WAXED_WEATHERED_COPPER_GRATE.get(),
-                        TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get()
+                        TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get(),
+
+                        TTBlocks.COPPER_DOOR.get()
                 );
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
@@ -80,7 +82,9 @@ public class TTBlockTagProvider extends BlockTagsProvider {
                         TTBlocks.WAXED_COPPER_GRATE.get(),
                         TTBlocks.WAXED_EXPOSED_COPPER_GRATE.get(),
                         TTBlocks.WAXED_WEATHERED_COPPER_GRATE.get(),
-                        TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get()
+                        TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get(),
+
+                        TTBlocks.COPPER_DOOR.get()
                 );
     }
 }

@@ -104,5 +104,21 @@
       "trickytrials:block/copper_grate_step5",
       "trickytrials:block/copper_grate_step6"
     ]
+  },
+  "block.copper_door.open": {
+    "subtitle": "subtitles.block.door.toggle",
+    "sounds": [
+      "trickytrials:block/copper_door_toggle1",
+      "trickytrials:block/copper_door_toggle2",
+      "trickytrials:block/copper_door_toggle3"
+    ]
+  },
+  "block.copper_door.close": {
+    "subtitle": "subtitles.block.door.toggle",
+    "sounds": [
+      "trickytrials:block/copper_door_toggle1",
+      "trickytrials:block/copper_door_toggle2",
+      "trickytrials:block/copper_door_toggle3"
+    ]
   }
 }

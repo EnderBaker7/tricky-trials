@@ -7,8 +7,14 @@ import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
@@ -59,6 +65,8 @@ public class TTLootTableProvider extends LootTableProvider {
             this.dropSelf(TTBlocks.WAXED_EXPOSED_COPPER_GRATE.get());
             this.dropSelf(TTBlocks.WAXED_WEATHERED_COPPER_GRATE.get());
             this.dropSelf(TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get());
+
+            this.add(TTBlocks.COPPER_DOOR.get(), block -> createSinglePropConditionTable(block, DoorBlock.HALF, DoubleBlockHalf.LOWER));
         }
 
         @Override

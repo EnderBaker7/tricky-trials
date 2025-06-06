@@ -10,6 +10,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DoorBlock;
 import net.minecraftforge.registries.RegistryObject;
 
 import javax.swing.text.StringContent;
@@ -41,7 +42,7 @@ public class TTRecipeProvider extends RecipeProvider {
     }
 
     private static void buildBulbRecipes(Consumer<FinishedRecipe> consumer, RegistryObject<Block> result, Item ing, RegistryObject<Item> waxIng, String type) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result.get(), 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, result.get(), 4)
                 .define('#', ing)
                 .define('$', Items.BLAZE_ROD)
                 .define('R', Items.REDSTONE)
@@ -83,6 +84,10 @@ public class TTRecipeProvider extends RecipeProvider {
                 .save(consumer, modLoc(type + "copper_grate_from_" + type + "copper_block_stonecutting"));
     }
 
+    private static void buildWaxedDoorRecipes(Consumer<FinishedRecipe> consumer, RegistryObject<Item> result, RegistryObject<Item> waxIng, String type) {
+
+    }
+
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         buildChiseledRecipes(consumer, TTBlocks.CHISELED_COPPER.get(), Items.CUT_COPPER_SLAB, Items.COPPER_BLOCK, Items.CUT_COPPER, "");
@@ -119,5 +124,13 @@ public class TTRecipeProvider extends RecipeProvider {
         buildGrateRecipes(consumer, TTBlocks.WAXED_EXPOSED_COPPER_GRATE, Items.WAXED_EXPOSED_COPPER, TTItems.EXPOSED_COPPER_GRATE, "waxed_exposed_");
         buildGrateRecipes(consumer, TTBlocks.WAXED_WEATHERED_COPPER_GRATE, Items.WAXED_WEATHERED_COPPER, TTItems.WEATHERED_COPPER_GRATE, "waxed_weathered_");
         buildGrateRecipes(consumer, TTBlocks.WAXED_OXIDIZED_COPPER_GRATE, Items.WAXED_OXIDIZED_COPPER, TTItems.OXIDIZED_COPPER_GRATE, "waxed_oxidized_");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, TTItems.COPPER_DOOR.get(), 3)
+                .define('#', Items.COPPER_INGOT)
+                .pattern("##")
+                .pattern("##")
+                .pattern("##")
+                .unlockedBy("has_copper_ingot", has(Items.COPPER_INGOT))
+                .save(consumer);
     }
 }

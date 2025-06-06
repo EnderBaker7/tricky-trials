@@ -50,8 +50,12 @@ public class TTSoundEvents {
             registerSoundEvent("block.copper_grate.fall");
     private static final RegistryObject<SoundEvent> COPPER_GRATE_STEP =
             registerSoundEvent("block.copper_grate.step");
+
     public static final Supplier<SoundType> COPPER_GRATE = () -> new SoundType(1.0f, 1.0f, COPPER_GRATE_BREAK.get(), COPPER_GRATE_STEP.get(),
             COPPER_GRATE_PLACE.get(), COPPER_GRATE_HIT.get(), COPPER_GRATE_FALL.get());
+
+    public static final RegistryObject<SoundEvent> COPPER_DOOR_OPEN = registerSoundEvent("block.copper_door.open");
+    public static final RegistryObject<SoundEvent> COPPER_DOOR_CLOSE = registerSoundEvent("block.copper_door.close");
 
     public static void register(IEventBus eventBus) {
         SOUND_EVENTS.register(eventBus);

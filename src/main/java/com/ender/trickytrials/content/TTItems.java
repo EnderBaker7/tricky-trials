@@ -1,10 +1,15 @@
 package com.ender.trickytrials.content;
 
 import com.ender.trickytrials.TrickyTrials;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoorBlock;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -12,6 +17,10 @@ import net.minecraftforge.registries.RegistryObject;
 public class TTItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, TrickyTrials.MODID);
     public static RegistryObject<Item> registerBlockItems(String name, RegistryObject<Block> block) {
+        return ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    }
+
+    public static RegistryObject<Item> registerDoorBlockItems(String name, RegistryObject<DoorBlock> block) {
         return ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
     public static final RegistryObject<Item> CHISELED_COPPER = registerBlockItems("chiseled_copper", TTBlocks.CHISELED_COPPER);
@@ -39,6 +48,7 @@ public class TTItems {
     public static final RegistryObject<Item> WAXED_EXPOSED_COPPER_GRATE = registerBlockItems("waxed_exposed_copper_grate", TTBlocks.WAXED_EXPOSED_COPPER_GRATE);
     public static final RegistryObject<Item> WAXED_WEATHERED_COPPER_GRATE = registerBlockItems("waxed_weathered_copper_grate", TTBlocks.WAXED_WEATHERED_COPPER_GRATE);
     public static final RegistryObject<Item> WAXED_OXIDIZED_COPPER_GRATE = registerBlockItems("waxed_oxidized_copper_grate", TTBlocks.WAXED_OXIDIZED_COPPER_GRATE);
+    public static final RegistryObject<Item> COPPER_DOOR = registerDoorBlockItems("copper_door", TTBlocks.COPPER_DOOR);
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

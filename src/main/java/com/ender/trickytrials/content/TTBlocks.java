@@ -6,6 +6,7 @@ import com.ender.trickytrials.content.weathering.WeatheringStage;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -80,6 +81,8 @@ public class TTBlocks {
             () -> new BaseCopperGrateBlock(BlockBehaviour.Properties.copy(Blocks.WEATHERED_COPPER)));
     public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_GRATE = BLOCKS.register("waxed_oxidized_copper_grate",
             () -> new BaseCopperGrateBlock(BlockBehaviour.Properties.copy(Blocks.OXIDIZED_COPPER)));
+    public static final RegistryObject<DoorBlock> COPPER_DOOR = BLOCKS.register("copper_door",
+            () -> new BaseCopperDoorBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
