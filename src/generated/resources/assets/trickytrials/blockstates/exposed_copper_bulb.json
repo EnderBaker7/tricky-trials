@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "lit=false,powered=false": {
+      "model": "trickytrials:block/exposed_copper_bulb_off"
+    },
+    "lit=false,powered=true": {
+      "model": "trickytrials:block/exposed_copper_bulb_off_powered"
+    },
+    "lit=true,powered=false": {
+      "model": "trickytrials:block/exposed_copper_bulb_on"
+    },
+    "lit=true,powered=true": {
+      "model": "trickytrials:block/exposed_copper_bulb_on_powered"
+    }
+  }
+}

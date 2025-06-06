@@ -1,0 +1,108 @@
+{
+  "block.copper_bulb.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "trickytrials:block/copper_bulb_break1",
+      "trickytrials:block/copper_bulb_break2",
+      "trickytrials:block/copper_bulb_break3",
+      "trickytrials:block/copper_bulb_break4"
+    ]
+  },
+  "block.copper_bulb.place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "trickytrials:block/copper_bulb_place1",
+      "trickytrials:block/copper_bulb_place2",
+      "trickytrials:block/copper_bulb_place3",
+      "trickytrials:block/copper_bulb_place4"
+    ]
+  },
+  "block.copper_bulb.hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "trickytrials:block/copper_bulb_step1",
+      "trickytrials:block/copper_bulb_step2",
+      "trickytrials:block/copper_bulb_step3",
+      "trickytrials:block/copper_bulb_step4",
+      "trickytrials:block/copper_bulb_step5",
+      "trickytrials:block/copper_bulb_step6"
+    ]
+  },
+  "block.copper_bulb.fall": {
+    "sounds": [
+      "trickytrials:block/copper_bulb_step1",
+      "trickytrials:block/copper_bulb_step2",
+      "trickytrials:block/copper_bulb_step3",
+      "trickytrials:block/copper_bulb_step4",
+      "trickytrials:block/copper_bulb_step5",
+      "trickytrials:block/copper_bulb_step6"
+    ]
+  },
+  "block.copper_bulb.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "trickytrials:block/copper_bulb_step1",
+      "trickytrials:block/copper_bulb_step2",
+      "trickytrials:block/copper_bulb_step3",
+      "trickytrials:block/copper_bulb_step4",
+      "trickytrials:block/copper_bulb_step5",
+      "trickytrials:block/copper_bulb_step6"
+    ]
+  },
+  "block.copper_bulb.click": {
+    "subtitle": "subtitles.block.copper_bulb.click",
+    "sounds": [
+      "trickytrials:block/copper_bulb_toggle"
+    ]
+  },
+  "block.copper_grate.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "trickytrials:block/copper_grate_break1",
+      "trickytrials:block/copper_grate_break2",
+      "trickytrials:block/copper_grate_break3",
+      "trickytrials:block/copper_grate_break4"
+    ]
+  },
+  "block.copper_grate.place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "trickytrials:block/copper_grate_break1",
+      "trickytrials:block/copper_grate_break2",
+      "trickytrials:block/copper_grate_break3",
+      "trickytrials:block/copper_grate_break4"
+    ]
+  },
+  "block.copper_grate.hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "trickytrials:block/copper_grate_step1",
+      "trickytrials:block/copper_grate_step2",
+      "trickytrials:block/copper_grate_step3",
+      "trickytrials:block/copper_grate_step4",
+      "trickytrials:block/copper_grate_step5",
+      "trickytrials:block/copper_grate_step6"
+    ]
+  },
+  "block.copper_grate.fall": {
+    "sounds": [
+      "trickytrials:block/copper_grate_step1",
+      "trickytrials:block/copper_grate_step2",
+      "trickytrials:block/copper_grate_step3",
+      "trickytrials:block/copper_grate_step4",
+      "trickytrials:block/copper_grate_step5",
+      "trickytrials:block/copper_grate_step6"
+    ]
+  },
+  "block.copper_grate.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "trickytrials:block/copper_grate_step1",
+      "trickytrials:block/copper_grate_step2",
+      "trickytrials:block/copper_grate_step3",
+      "trickytrials:block/copper_grate_step4",
+      "trickytrials:block/copper_grate_step5",
+      "trickytrials:block/copper_grate_step6"
+    ]
+  }
+}
