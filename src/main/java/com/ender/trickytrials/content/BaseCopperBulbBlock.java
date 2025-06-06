@@ -16,9 +16,7 @@ public class BaseCopperBulbBlock extends Block {
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
     public BaseCopperBulbBlock(Properties pProperties) {
         super(pProperties
-                .isRedstoneConductor((blockState, blockGetter, blockPos) -> false)
-                .isSuffocating((blockState, blockGetter, blockPos) -> false)
-                .isViewBlocking((blockState, blockGetter, blockPos) -> false));
+                .isRedstoneConductor((blockState, blockGetter, blockPos) -> false));
         this.registerDefaultState(this.defaultBlockState()
                 .setValue(LIT, false)
                 .setValue(POWERED, false));
