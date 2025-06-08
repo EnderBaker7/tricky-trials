@@ -1,17 +1,19 @@
 package com.ender.trickytrials.content.datagen;
 
+import com.ender.trickytrials.TrickyTrials;
+import com.ender.trickytrials.content.CopperDoorBlock;
 import com.ender.trickytrials.content.TTBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
+import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.state.properties.*;
+import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.List;
 
 public class TTBlockStateProvider extends BlockStateProvider {
     public TTBlockStateProvider(PackOutput output, String modid, ExistingFileHelper exFileHelper) {
@@ -21,13 +23,13 @@ public class TTBlockStateProvider extends BlockStateProvider {
     private void registerBulbStatesAndModels(RegistryObject<Block> block, String oxiType, String waxed) {
         getVariantBuilder(block.get())
                 .partialState().with(LIT, false).with(POWERED, false)
-                    .modelForState().modelFile(models().cubeAll(waxed + oxiType + "copper_bulb_off", modLoc("block/" + oxiType + "copper_bulb"))).addModel()
+                .modelForState().modelFile(models().cubeAll(waxed + oxiType + "copper_bulb_off", modLoc("block/" + oxiType + "copper_bulb"))).addModel()
                 .partialState().with(LIT, false).with(POWERED, true)
-                    .modelForState().modelFile(models().cubeAll(waxed + oxiType + "copper_bulb_off_powered", modLoc("block/" + oxiType + "copper_bulb_powered"))).addModel()
+                .modelForState().modelFile(models().cubeAll(waxed + oxiType + "copper_bulb_off_powered", modLoc("block/" + oxiType + "copper_bulb_powered"))).addModel()
                 .partialState().with(LIT, true).with(POWERED, false)
-                    .modelForState().modelFile(models().cubeAll(waxed + oxiType + "copper_bulb_on", modLoc("block/" + oxiType + "copper_bulb_lit"))).addModel()
+                .modelForState().modelFile(models().cubeAll(waxed + oxiType + "copper_bulb_on", modLoc("block/" + oxiType + "copper_bulb_lit"))).addModel()
                 .partialState().with(LIT, true).with(POWERED, true)
-                    .modelForState().modelFile(models().cubeAll(waxed + oxiType + "copper_bulb_on_powered", modLoc("block/" + oxiType + "copper_bulb_lit_powered"))).addModel();
+                .modelForState().modelFile(models().cubeAll(waxed + oxiType + "copper_bulb_on_powered", modLoc("block/" + oxiType + "copper_bulb_lit_powered"))).addModel();
     }
 
     private static final BooleanProperty LIT = BlockStateProperties.LIT;

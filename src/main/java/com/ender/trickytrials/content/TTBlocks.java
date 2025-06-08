@@ -82,13 +82,13 @@ public class TTBlocks {
     public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_GRATE = BLOCKS.register("waxed_oxidized_copper_grate",
             () -> new BaseCopperGrateBlock(BlockBehaviour.Properties.copy(Blocks.OXIDIZED_COPPER)));
     public static final RegistryObject<DoorBlock> COPPER_DOOR = BLOCKS.register("copper_door",
-            () -> new BaseCopperDoorBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
+            () -> new CopperDoorBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
     public static final RegistryObject<DoorBlock> EXPOSED_COPPER_DOOR = BLOCKS.register("exposed_copper_door",
-            () -> new BaseCopperDoorBlock(BlockBehaviour.Properties.copy(Blocks.EXPOSED_COPPER)));
+            () -> new CopperDoorBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.copy(Blocks.EXPOSED_COPPER)));
     public static final RegistryObject<DoorBlock> WEATHERED_COPPER_DOOR = BLOCKS.register("weathered_copper_door",
-            () -> new BaseCopperDoorBlock(BlockBehaviour.Properties.copy(Blocks.WEATHERED_COPPER)));
+            () -> new CopperDoorBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.copy(Blocks.WEATHERED_COPPER)));
     public static final RegistryObject<DoorBlock> OXIDIZED_COPPER_DOOR = BLOCKS.register("oxidized_copper_door",
-            () -> new BaseCopperDoorBlock(BlockBehaviour.Properties.copy(Blocks.OXIDIZED_COPPER)));
+            () -> new CopperDoorBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.copy(Blocks.OXIDIZED_COPPER)));
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
