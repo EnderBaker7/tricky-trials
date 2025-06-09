@@ -1,5 +1,7 @@
 package com.ender.trickytrials.content;
 
+import com.ender.trickytrials.content.weathering.WeatheringHandler;
+import com.ender.trickytrials.content.weathering.WeatheringLogic;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -16,54 +18,26 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
 import java.util.Optional;
 
-public class CopperBulbBlock extends BaseCopperBulbBlock implements WeatheringCopper {
-    private final WeatheringCopper.WeatherState weatherState;
+public class CopperBulbBlock extends BaseCopperBulbBlock implements WeatheringLogic {
+    private final WeatheringStage weatherState;
 
-    public CopperBulbBlock(WeatheringCopper.WeatherState state, Properties properties) {
+    public CopperBulbBlock(WeatheringStage state, Properties properties) {
         super(properties);
         this.weatherState = state;
     }
 
     @Override
-    public WeatheringCopper.WeatherState getAge() {
+    public WeatheringStage getStage() {
         return this.weatherState;
     }
 
     @Override
     public boolean isRandomlyTicking(BlockState state) {
-        return this.getNext(state).isPresent();
+        return this.weatherState != WeatheringStage.OXIDIZED;
     }
 
     @Override
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource source) {
-        Block block = state.getBlock();
-        if (block instanceof WeatheringCopper weatheringCopper) {
-            Optional<BlockState> nextState = weatheringCopper.getNext(state);
-            nextState.ifPresent(blockState -> level.setBlockAndUpdate(pos, blockState.setValue(LIT, state.getValue(LIT)).setValue(POWERED, state.getValue(POWERED))));
-        }
-    }
-
-    @Override
-    public Optional<BlockState> getNext(BlockState state) {
-        return switch (this.weatherState) {
-            case UNAFFECTED -> Optional.of(TTBlocks.EXPOSED_COPPER_BULB.get().defaultBlockState().setValue(LIT, state.getValue(LIT))
-                    .setValue(POWERED, state.getValue(POWERED)));
-            case EXPOSED -> Optional.of(TTBlocks.WEATHERED_COPPER_BULB.get().defaultBlockState().setValue(LIT, state.getValue(LIT))
-                    .setValue(POWERED, state.getValue(POWERED)));
-            case WEATHERED -> Optional.of(TTBlocks.OXIDIZED_COPPER_BULB.get().defaultBlockState().setValue(LIT, state.getValue(LIT))
-                    .setValue(POWERED, state.getValue(POWERED)));
-            default -> Optional.empty();
-        };
-    }
-    public Optional<BlockState> getPrevious(BlockState state) {
-        return switch (this.weatherState) {
-            case EXPOSED -> Optional.of(TTBlocks.COPPER_BULB.get().defaultBlockState().setValue(LIT, state.getValue(LIT))
-                    .setValue(POWERED, state.getValue(POWERED)));
-            case WEATHERED -> Optional.of(TTBlocks.EXPOSED_COPPER_BULB.get().defaultBlockState().setValue(LIT, state.getValue(LIT))
-                    .setValue(POWERED, state.getValue(POWERED)));
-            case OXIDIZED -> Optional.of(TTBlocks.WEATHERED_COPPER_BULB.get().defaultBlockState().setValue(LIT, state.getValue(LIT))
-                    .setValue(POWERED, state.getValue(POWERED)));
-            default -> Optional.empty();
-        };
+        WeatheringHandler.handleOxidationTick(state, level, pos, source, this);
     }
 }

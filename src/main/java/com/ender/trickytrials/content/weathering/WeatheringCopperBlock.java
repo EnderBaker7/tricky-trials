@@ -6,29 +6,29 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class WeatheringCopperBlock extends Block {
+import java.util.ArrayList;
+import java.util.List;
+
+public class WeatheringCopperBlock extends Block implements WeatheringLogic {
     private final WeatheringStage stage;
 
     public WeatheringCopperBlock(WeatheringStage stage, Properties properties) {
         super(properties);
         this.stage = stage;
+        this.registerDefaultState(this.defaultBlockState());
     }
 
     @Override
     public boolean isRandomlyTicking(BlockState state) {
-        return this.stage != WeatheringStage.OXI;
+        return this.stage != WeatheringStage.OXIDIZED;
     }
 
     @Override
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        if (random.nextInt(20) == 0) {
-            Block next = WeatheringStage.getNext(this);
-            if (next != null) {
-                level.setBlock(pos, next.defaultBlockState(), Block.UPDATE_ALL);
-            }
-        }
+        WeatheringHandler.handleOxidationTick(state, level, pos, random, this);
     }
 
+    @Override
     public WeatheringStage getStage() {
         return stage;
     }

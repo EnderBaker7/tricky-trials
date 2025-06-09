@@ -1,14 +1,12 @@
 package com.ender.trickytrials;
 
 import com.ender.trickytrials.content.*;
-import com.ender.trickytrials.content.weathering.WeatheringCopperBlock;
-import com.ender.trickytrials.content.weathering.WeatheringStage;
+import com.ender.trickytrials.content.weathering.WeatheringLogic;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -50,11 +48,7 @@ public class TrickyTrials {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-            WeatheringStage.STAGE_MAP.put((WeatheringCopperBlock) TTBlocks.CHISELED_COPPER.get(), TTBlocks.EXPOSED_CHISELED_COPPER.get());
-            WeatheringStage.STAGE_MAP.put((WeatheringCopperBlock) TTBlocks.EXPOSED_CHISELED_COPPER.get(), TTBlocks.WEATHERED_CHISELED_COPPER.get());
-            WeatheringStage.STAGE_MAP.put((WeatheringCopperBlock) TTBlocks.WEATHERED_CHISELED_COPPER.get(), TTBlocks.OXIDIZED_CHISELED_COPPER.get());
-        });
+        event.enqueueWork(WeatheringLogic.WeatheringStage::setupStageMap);
     }
 
     // Add the example block item to the building blocks tab
