@@ -10,10 +10,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DoorBlock;
 import net.minecraftforge.registries.RegistryObject;
 
-import javax.swing.text.StringContent;
 import java.util.function.Consumer;
 
 public class TTRecipeProvider extends RecipeProvider {

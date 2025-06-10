@@ -2,7 +2,7 @@ package com.ender.trickytrials.content;
 
 import com.ender.trickytrials.TrickyTrials;
 import com.ender.trickytrials.content.weathering.*;
-import com.ender.trickytrials.content.weathering.logic.WeatheringCopperBlock;
+import com.ender.trickytrials.content.weathering.WeatheringCopperBlock;
 import com.ender.trickytrials.content.weathering.logic.WeatheringLogic;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.*;

@@ -1,19 +1,12 @@
 package com.ender.trickytrials.content.datagen;
 
-import com.ender.trickytrials.TrickyTrials;
-import com.ender.trickytrials.content.CopperDoorBlock;
 import com.ender.trickytrials.content.TTBlocks;
-import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.util.List;
 
 public class TTBlockStateProvider extends BlockStateProvider {
     public TTBlockStateProvider(PackOutput output, String modid, ExistingFileHelper exFileHelper) {

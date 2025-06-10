@@ -1,5 +1,7 @@
-package com.ender.trickytrials.content.weathering.logic;
+package com.ender.trickytrials.content.weathering;
 
+import com.ender.trickytrials.content.weathering.logic.WeatheringHandler;
+import com.ender.trickytrials.content.weathering.logic.WeatheringLogic;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
