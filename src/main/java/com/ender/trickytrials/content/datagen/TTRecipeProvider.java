@@ -84,8 +84,13 @@ public class TTRecipeProvider extends RecipeProvider {
                 .save(consumer, modLoc(type + "copper_grate_from_" + type + "copper_block_stonecutting"));
     }
 
-    private static void buildWaxedDoorRecipes(Consumer<FinishedRecipe> consumer, RegistryObject<Item> result, RegistryObject<Item> waxIng, String type) {
-
+    private static void buildWaxedDoorRecipes(Consumer<FinishedRecipe> consumer, RegistryObject<Item> result, RegistryObject<Item> waxIng) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, result.get())
+                .requires(waxIng.get())
+                .requires(Items.HONEYCOMB)
+                .unlockedBy("has_" + waxIng.getId().getPath(), has(waxIng.get()))
+                .unlockedBy("has_honeycomb", has(Items.HONEYCOMB))
+                .save(consumer, modLoc(result.getId().getPath() + "_from_honeycomb_crafting"));
     }
 
     @Override
@@ -132,5 +137,10 @@ public class TTRecipeProvider extends RecipeProvider {
                 .pattern("##")
                 .unlockedBy("has_copper_ingot", has(Items.COPPER_INGOT))
                 .save(consumer);
+
+        buildWaxedDoorRecipes(consumer, TTItems.WAXED_COPPER_DOOR, TTItems.COPPER_DOOR);
+        buildWaxedDoorRecipes(consumer, TTItems.WAXED_EXPOSED_COPPER_DOOR, TTItems.EXPOSED_COPPER_DOOR);
+        buildWaxedDoorRecipes(consumer, TTItems.WAXED_WEATHERED_COPPER_DOOR, TTItems.WEATHERED_COPPER_DOOR);
+        buildWaxedDoorRecipes(consumer, TTItems.WAXED_OXIDIZED_COPPER_DOOR, TTItems.OXIDIZED_COPPER_DOOR);
     }
 }

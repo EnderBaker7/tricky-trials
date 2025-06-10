@@ -78,7 +78,6 @@ public class BaseCopperDoorBlock extends DoorBlock {
             Direction facing = context.getHorizontalDirection();
             DoorHingeSide hinge = calculateHinge(context);
             boolean powered = level.hasNeighborSignal(pos) || level.hasNeighborSignal(pos.above());
-            System.out.println("Placing door at: " + context.getClickedPos() + ", hinge=" + hinge + ", facing=" + facing);
 
             return this.defaultBlockState()
                     .setValue(FACING, facing)

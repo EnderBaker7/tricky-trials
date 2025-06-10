@@ -1,8 +1,6 @@
 package com.ender.trickytrials;
 
-import com.ender.trickytrials.content.BaseCopperBulbBlock;
-import com.ender.trickytrials.content.BaseCopperGrateBlock;
-import com.ender.trickytrials.content.TTBlocks;
+import com.ender.trickytrials.content.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -13,8 +11,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.*;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -30,6 +30,13 @@ public class ItemUseHandler {
     private static final BooleanProperty POWERED = BaseCopperBulbBlock.POWERED;
     private static final BooleanProperty WATERLOGGED = BaseCopperGrateBlock.WATERLOGGED;
 
+    private static final DirectionProperty FACING = DoorBlock.FACING;
+    private static final BooleanProperty OPEN = DoorBlock.OPEN;
+    private static final EnumProperty<DoorHingeSide> HINGE = DoorBlock.HINGE;
+    private static final BooleanProperty DPOWERED = DoorBlock.POWERED;
+    private static final EnumProperty<DoubleBlockHalf> HALF = DoorBlock.HALF;
+    private static final BooleanProperty TRANSITIONING = BaseCopperDoorBlock.TRANSITIONING;
+
     @SubscribeEvent
     public static void onItemUse(PlayerInteractEvent.RightClickBlock event) {
         Level level = event.getLevel();
@@ -38,6 +45,12 @@ public class ItemUseHandler {
         ItemStack itemStack = event.getItemStack();
         BlockState state = level.getBlockState(pos);
         Block currentBlock = state.getBlock();
+
+        if (currentBlock instanceof BaseCopperDoorBlock) {
+            if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
+                pos = pos.below();
+            }
+        }
 
         if (itemStack.is(Items.HONEYCOMB)) {
             Block waxedBlock = getWaxedBlock(currentBlock);
@@ -58,6 +71,9 @@ public class ItemUseHandler {
             BlockState currentState = level.getBlockState(pos);
             BlockState nextState = nextBlock.defaultBlockState();
 
+            BlockState bottomState = null;
+            BlockState topState = null;
+
             if (nextBlock instanceof BaseCopperBulbBlock) {
                 nextState = nextState
                         .setValue(LIT, currentState.getValue(LIT))
@@ -68,8 +84,35 @@ public class ItemUseHandler {
                 nextState = nextState.setValue(WATERLOGGED, currentState.getValue(WATERLOGGED));
             }
 
+            if (nextBlock instanceof BaseCopperDoorBlock) {
+                bottomState = nextState
+                        .setValue(FACING, currentState.getValue(FACING))
+                        .setValue(OPEN, currentState.getValue(OPEN))
+                        .setValue(HINGE, currentState.getValue(HINGE))
+                        .setValue(DPOWERED, currentState.getValue(DPOWERED))
+                        .setValue(HALF, DoubleBlockHalf.LOWER);
+                topState = bottomState
+                        .setValue(HALF, DoubleBlockHalf.UPPER);
+                if (nextBlock instanceof CopperDoorBlock) {
+                    bottomState = bottomState
+                            .setValue(TRANSITIONING, false);
+                    topState = topState
+                            .setValue(TRANSITIONING, false);
+                }
+            }
+
             if (!level.isClientSide()) {
-                level.setBlock(pos, nextState, 3);
+                if (nextBlock instanceof BaseCopperDoorBlock) {
+                    BlockPos topPos = pos.above();
+                    level.setBlock(pos, Blocks.AIR.defaultBlockState(), Block.UPDATE_NONE);
+
+                    level.setBlock(pos, bottomState, Block.UPDATE_ALL);
+                    level.setBlock(topPos, topState, Block.UPDATE_ALL);
+
+                    level.levelEvent(pType, topPos, 0);
+                } else {
+                    level.setBlock(pos, nextState, Block.UPDATE_ALL);
+                }
                 level.levelEvent(pType, pos, 0);
 
                 if (pType == 3004) {
@@ -104,7 +147,12 @@ public class ItemUseHandler {
             Map.entry(TTBlocks.COPPER_GRATE.get(), TTBlocks.WAXED_COPPER_GRATE.get()),
             Map.entry(TTBlocks.EXPOSED_COPPER_GRATE.get(), TTBlocks.WAXED_EXPOSED_COPPER_GRATE.get()),
             Map.entry(TTBlocks.WEATHERED_COPPER_GRATE.get(), TTBlocks.WAXED_WEATHERED_COPPER_GRATE.get()),
-            Map.entry(TTBlocks.OXIDIZED_COPPER_GRATE.get(), TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get())
+            Map.entry(TTBlocks.OXIDIZED_COPPER_GRATE.get(), TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get()),
+
+            Map.entry(TTBlocks.COPPER_DOOR.get(), TTBlocks.WAXED_COPPER_DOOR.get()),
+            Map.entry(TTBlocks.EXPOSED_COPPER_DOOR.get(), TTBlocks.WAXED_EXPOSED_COPPER_DOOR.get()),
+            Map.entry(TTBlocks.WEATHERED_COPPER_DOOR.get(), TTBlocks.WAXED_WEATHERED_COPPER_DOOR.get()),
+            Map.entry(TTBlocks.OXIDIZED_COPPER_DOOR.get(), TTBlocks.WAXED_OXIDIZED_COPPER_DOOR.get())
     );
 
     private static final Supplier<Map<Block, Block>> WAXSCRAPE = () -> Map.ofEntries(
@@ -121,7 +169,12 @@ public class ItemUseHandler {
             Map.entry(TTBlocks.WAXED_COPPER_GRATE.get(), TTBlocks.COPPER_GRATE.get()),
             Map.entry(TTBlocks.WAXED_EXPOSED_COPPER_GRATE.get(), TTBlocks.EXPOSED_COPPER_GRATE.get()),
             Map.entry(TTBlocks.WAXED_WEATHERED_COPPER_GRATE.get(), TTBlocks.WEATHERED_COPPER_GRATE.get()),
-            Map.entry(TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get(), TTBlocks.OXIDIZED_COPPER_GRATE.get())
+            Map.entry(TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get(), TTBlocks.OXIDIZED_COPPER_GRATE.get()),
+
+            Map.entry(TTBlocks.WAXED_COPPER_DOOR.get(), TTBlocks.COPPER_DOOR.get()),
+            Map.entry(TTBlocks.WAXED_EXPOSED_COPPER_DOOR.get(), TTBlocks.EXPOSED_COPPER_DOOR.get()),
+            Map.entry(TTBlocks.WAXED_WEATHERED_COPPER_DOOR.get(), TTBlocks.WEATHERED_COPPER_DOOR.get()),
+            Map.entry(TTBlocks.WAXED_OXIDIZED_COPPER_DOOR.get(), TTBlocks.OXIDIZED_COPPER_DOOR.get())
     );
 
     private static final Supplier<Map<Block, Block>> OXISCRAPE = () -> Map.ofEntries(
@@ -135,7 +188,11 @@ public class ItemUseHandler {
 
             Map.entry(TTBlocks.EXPOSED_COPPER_GRATE.get(), TTBlocks.COPPER_GRATE.get()),
             Map.entry(TTBlocks.WEATHERED_COPPER_GRATE.get(), TTBlocks.EXPOSED_COPPER_GRATE.get()),
-            Map.entry(TTBlocks.OXIDIZED_COPPER_GRATE.get(), TTBlocks.WEATHERED_COPPER_GRATE.get())
+            Map.entry(TTBlocks.OXIDIZED_COPPER_GRATE.get(), TTBlocks.WEATHERED_COPPER_GRATE.get()),
+
+            Map.entry(TTBlocks.EXPOSED_COPPER_DOOR.get(), TTBlocks.COPPER_DOOR.get()),
+            Map.entry(TTBlocks.WEATHERED_COPPER_DOOR.get(), TTBlocks.EXPOSED_COPPER_DOOR.get()),
+            Map.entry(TTBlocks.OXIDIZED_COPPER_DOOR.get(), TTBlocks.WEATHERED_COPPER_DOOR.get())
     );
 
     private static Block getWaxedBlock(Block block) {

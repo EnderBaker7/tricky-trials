@@ -63,5 +63,14 @@
   "block.trickytrials.oxidized_copper_door": "Oxidized Copper Door",
   "item.trickytrials.oxidized_copper_door": "Oxidized Copper Door",
 
+  "block.trickytrials.waxed_copper_door": "Waxed Copper Door",
+  "item.trickytrials.waxed_copper_door": "Waxed Copper Door",
+  "block.trickytrials.waxed_exposed_copper_door": "Waxed Exposed Copper Door",
+  "item.trickytrials.waxed_exposed_copper_door": "Waxed Exposed Copper Door",
+  "block.trickytrials.waxed_weathered_copper_door": "Waxed Weathered Copper Door",
+  "item.trickytrials.waxed_weathered_copper_door": "Waxed Weathered Copper Door",
+  "block.trickytrials.waxed_oxidized_copper_door": "Waxed Oxidized Copper Door",
+  "item.trickytrials.waxed_oxidized_copper_door": "Waxed Oxidized Copper Door",
+
   "subtitles.block.copper_bulb.click": "Bulb clicks"
 }

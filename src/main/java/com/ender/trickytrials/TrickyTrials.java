@@ -81,14 +81,21 @@ public class TrickyTrials {
                registerCutout(TTBlocks.EXPOSED_COPPER_GRATE.get());
                registerCutout(TTBlocks.WEATHERED_COPPER_GRATE.get());
                registerCutout(TTBlocks.OXIDIZED_COPPER_GRATE.get());
+
                registerCutout(TTBlocks.WAXED_COPPER_GRATE.get());
                registerCutout(TTBlocks.WAXED_EXPOSED_COPPER_GRATE.get());
                registerCutout(TTBlocks.WAXED_WEATHERED_COPPER_GRATE.get());
                registerCutout(TTBlocks.WAXED_OXIDIZED_COPPER_GRATE.get());
+
                registerCutout(TTBlocks.COPPER_DOOR.get());
                registerCutout(TTBlocks.EXPOSED_COPPER_DOOR.get());
                registerCutout(TTBlocks.WEATHERED_COPPER_DOOR.get());
                registerCutout(TTBlocks.OXIDIZED_COPPER_DOOR.get());
+
+               registerCutout(TTBlocks.WAXED_COPPER_DOOR.get());
+               registerCutout(TTBlocks.WAXED_EXPOSED_COPPER_DOOR.get());
+               registerCutout(TTBlocks.WAXED_WEATHERED_COPPER_DOOR.get());
+               registerCutout(TTBlocks.WAXED_OXIDIZED_COPPER_DOOR.get());
             });
         }
     }

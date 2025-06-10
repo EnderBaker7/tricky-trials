@@ -15,6 +15,11 @@ public class TTItemModelProvider extends ItemModelProvider {
                 .texture("layer0", modLoc("item/" + name));
     }
 
+    private void registerDoorItemModel(String mName, String tName) {
+        withExistingParent(mName, mcLoc("item/generated"))
+                .texture("layer0", modLoc("item/" + tName + "copper_door"));
+    }
+
     @Override
     protected void registerModels() {
         withExistingParent(TTItems.CHISELED_COPPER.getId().getPath(), modLoc("block/chiseled_copper"));
@@ -51,5 +56,10 @@ public class TTItemModelProvider extends ItemModelProvider {
         registerDoorItemModel(TTItems.EXPOSED_COPPER_DOOR.getId().getPath());
         registerDoorItemModel(TTItems.WEATHERED_COPPER_DOOR.getId().getPath());
         registerDoorItemModel(TTItems.OXIDIZED_COPPER_DOOR.getId().getPath());
+
+        registerDoorItemModel(TTItems.WAXED_COPPER_DOOR.getId().getPath(), "");
+        registerDoorItemModel(TTItems.WAXED_EXPOSED_COPPER_DOOR.getId().getPath(), "exposed_");
+        registerDoorItemModel(TTItems.WAXED_WEATHERED_COPPER_DOOR.getId().getPath(), "weathered_");
+        registerDoorItemModel(TTItems.WAXED_OXIDIZED_COPPER_DOOR.getId().getPath(), "oxidized_");
     }
 }
