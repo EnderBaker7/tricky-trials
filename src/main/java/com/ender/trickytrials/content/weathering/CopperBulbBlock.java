@@ -1,22 +1,12 @@
-package com.ender.trickytrials.content;
+package com.ender.trickytrials.content.weathering;
 
-import com.ender.trickytrials.content.weathering.WeatheringHandler;
-import com.ender.trickytrials.content.weathering.WeatheringLogic;
+import com.ender.trickytrials.content.BaseCopperBulbBlock;
+import com.ender.trickytrials.content.weathering.logic.WeatheringHandler;
+import com.ender.trickytrials.content.weathering.logic.WeatheringLogic;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-
-import java.util.Optional;
 
 public class CopperBulbBlock extends BaseCopperBulbBlock implements WeatheringLogic {
     private final WeatheringStage weatherState;

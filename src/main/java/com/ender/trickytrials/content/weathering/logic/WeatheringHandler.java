@@ -1,9 +1,8 @@
-package com.ender.trickytrials.content.weathering;
+package com.ender.trickytrials.content.weathering.logic;
 
 import com.ender.trickytrials.content.BaseCopperBulbBlock;
 import com.ender.trickytrials.content.BaseCopperGrateBlock;
-import com.ender.trickytrials.content.CopperBulbBlock;
-import com.ender.trickytrials.content.CopperDoorBlock;
+import com.ender.trickytrials.content.weathering.CopperDoorBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;

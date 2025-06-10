@@ -1,29 +1,21 @@
-package com.ender.trickytrials.content;
+package com.ender.trickytrials.content.weathering;
 
-import com.ender.trickytrials.content.weathering.WeatheringHandler;
-import com.ender.trickytrials.content.weathering.WeatheringLogic;
+import com.ender.trickytrials.content.BaseCopperDoorBlock;
+import com.ender.trickytrials.content.weathering.logic.WeatheringHandler;
+import com.ender.trickytrials.content.weathering.logic.WeatheringLogic;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DoorBlock;
-import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.minecraft.world.phys.Vec3;
-
-import java.util.Optional;
 
 public class CopperDoorBlock extends BaseCopperDoorBlock implements WeatheringLogic {
     private final WeatheringStage weatherState;

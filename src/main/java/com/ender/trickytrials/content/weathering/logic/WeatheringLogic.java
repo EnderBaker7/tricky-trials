@@ -1,4 +1,4 @@
-package com.ender.trickytrials.content.weathering;
+package com.ender.trickytrials.content.weathering.logic;
 
 import com.ender.trickytrials.content.TTBlocks;
 import net.minecraft.world.level.block.Block;

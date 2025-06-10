@@ -1,15 +1,13 @@
-package com.ender.trickytrials.content;
+package com.ender.trickytrials.content.weathering;
 
-import com.ender.trickytrials.content.weathering.WeatheringHandler;
-import com.ender.trickytrials.content.weathering.WeatheringLogic;
+import com.ender.trickytrials.content.BaseCopperGrateBlock;
+import com.ender.trickytrials.content.TTSoundEvents;
+import com.ender.trickytrials.content.weathering.logic.WeatheringHandler;
+import com.ender.trickytrials.content.weathering.logic.WeatheringLogic;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockState;
-
-import java.util.Optional;
 
 public class CopperGrateBlock extends BaseCopperGrateBlock implements WeatheringLogic {
     private final WeatheringStage weatherState;

@@ -1,7 +1,7 @@
 package com.ender.trickytrials;
 
 import com.ender.trickytrials.content.*;
-import com.ender.trickytrials.content.weathering.WeatheringLogic;
+import com.ender.trickytrials.content.weathering.logic.WeatheringLogic;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;

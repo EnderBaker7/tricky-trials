@@ -1,13 +1,11 @@
 package com.ender.trickytrials.content;
 
 import com.ender.trickytrials.TrickyTrials;
-import com.ender.trickytrials.content.weathering.WeatheringCopperBlock;
-import com.ender.trickytrials.content.weathering.WeatheringLogic;
+import com.ender.trickytrials.content.weathering.*;
+import com.ender.trickytrials.content.weathering.logic.WeatheringCopperBlock;
+import com.ender.trickytrials.content.weathering.logic.WeatheringLogic;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DoorBlock;
-import net.minecraft.world.level.block.WeatheringCopper;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.eventbus.api.IEventBus;

@@ -1,6 +1,7 @@
 package com.ender.trickytrials;
 
 import com.ender.trickytrials.content.*;
+import com.ender.trickytrials.content.weathering.CopperDoorBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
