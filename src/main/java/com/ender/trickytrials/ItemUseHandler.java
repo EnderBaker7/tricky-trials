@@ -14,6 +14,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -27,15 +28,15 @@ import java.util.function.Supplier;
 @Mod.EventBusSubscriber(modid = TrickyTrials.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ItemUseHandler {
 
-    private static final BooleanProperty LIT = BaseCopperBulbBlock.LIT;
-    private static final BooleanProperty POWERED = BaseCopperBulbBlock.POWERED;
-    private static final BooleanProperty WATERLOGGED = BaseCopperGrateBlock.WATERLOGGED;
+    private static final BooleanProperty LIT = BlockStateProperties.LIT;
+    private static final BooleanProperty POWERED = BlockStateProperties.POWERED;
+    private static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    private static final DirectionProperty FACING = DoorBlock.FACING;
-    private static final BooleanProperty OPEN = DoorBlock.OPEN;
-    private static final EnumProperty<DoorHingeSide> HINGE = DoorBlock.HINGE;
-    private static final BooleanProperty DPOWERED = DoorBlock.POWERED;
-    private static final EnumProperty<DoubleBlockHalf> HALF = DoorBlock.HALF;
+    private static final DirectionProperty FACING = BlockStateProperties.FACING;
+    private static final BooleanProperty OPEN = BlockStateProperties.OPEN;
+    private static final EnumProperty<DoorHingeSide> HINGE = BlockStateProperties.DOOR_HINGE;
+    private static final EnumProperty<DoubleBlockHalf> DOORHALF = DoorBlock.HALF;
+    private static final EnumProperty<Half> TRAPHALF = BlockStateProperties.HALF;
     private static final BooleanProperty TRANSITIONING = BaseCopperDoorBlock.TRANSITIONING;
 
     @SubscribeEvent
@@ -48,7 +49,7 @@ public class ItemUseHandler {
         Block currentBlock = state.getBlock();
 
         if (currentBlock instanceof BaseCopperDoorBlock) {
-            if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
+            if (state.getValue(DOORHALF) == DoubleBlockHalf.UPPER) {
                 pos = pos.below();
             }
         }
@@ -90,16 +91,24 @@ public class ItemUseHandler {
                         .setValue(FACING, currentState.getValue(FACING))
                         .setValue(OPEN, currentState.getValue(OPEN))
                         .setValue(HINGE, currentState.getValue(HINGE))
-                        .setValue(DPOWERED, currentState.getValue(DPOWERED))
-                        .setValue(HALF, DoubleBlockHalf.LOWER);
+                        .setValue(POWERED, currentState.getValue(POWERED))
+                        .setValue(DOORHALF, DoubleBlockHalf.LOWER);
                 topState = bottomState
-                        .setValue(HALF, DoubleBlockHalf.UPPER);
+                        .setValue(DOORHALF, DoubleBlockHalf.UPPER);
                 if (nextBlock instanceof CopperDoorBlock) {
                     bottomState = bottomState
                             .setValue(TRANSITIONING, false);
                     topState = topState
                             .setValue(TRANSITIONING, false);
                 }
+            }
+
+            if (nextBlock instanceof TrapDoorBlock) {
+                nextState = nextState
+                        .setValue(OPEN, currentState.getValue(OPEN))
+                        .setValue(TRAPHALF, currentState.getValue(TRAPHALF))
+                        .setValue(POWERED, currentState.getValue(POWERED))
+                        .setValue(WATERLOGGED, currentState.getValue(WATERLOGGED));
             }
 
             if (!level.isClientSide()) {
@@ -153,7 +162,12 @@ public class ItemUseHandler {
             Map.entry(TTBlocks.COPPER_DOOR.get(), TTBlocks.WAXED_COPPER_DOOR.get()),
             Map.entry(TTBlocks.EXPOSED_COPPER_DOOR.get(), TTBlocks.WAXED_EXPOSED_COPPER_DOOR.get()),
             Map.entry(TTBlocks.WEATHERED_COPPER_DOOR.get(), TTBlocks.WAXED_WEATHERED_COPPER_DOOR.get()),
-            Map.entry(TTBlocks.OXIDIZED_COPPER_DOOR.get(), TTBlocks.WAXED_OXIDIZED_COPPER_DOOR.get())
+            Map.entry(TTBlocks.OXIDIZED_COPPER_DOOR.get(), TTBlocks.WAXED_OXIDIZED_COPPER_DOOR.get()),
+
+            Map.entry(TTBlocks.COPPER_TRAPDOOR.get(), TTBlocks.WAXED_COPPER_TRAPDOOR.get()),
+            Map.entry(TTBlocks.EXPOSED_COPPER_TRAPDOOR.get(), TTBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR.get()),
+            Map.entry(TTBlocks.WEATHERED_COPPER_TRAPDOOR.get(), TTBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR.get()),
+            Map.entry(TTBlocks.OXIDIZED_COPPER_TRAPDOOR.get(), TTBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR.get())
     );
 
     private static final Supplier<Map<Block, Block>> WAXSCRAPE = () -> Map.ofEntries(
@@ -175,7 +189,12 @@ public class ItemUseHandler {
             Map.entry(TTBlocks.WAXED_COPPER_DOOR.get(), TTBlocks.COPPER_DOOR.get()),
             Map.entry(TTBlocks.WAXED_EXPOSED_COPPER_DOOR.get(), TTBlocks.EXPOSED_COPPER_DOOR.get()),
             Map.entry(TTBlocks.WAXED_WEATHERED_COPPER_DOOR.get(), TTBlocks.WEATHERED_COPPER_DOOR.get()),
-            Map.entry(TTBlocks.WAXED_OXIDIZED_COPPER_DOOR.get(), TTBlocks.OXIDIZED_COPPER_DOOR.get())
+            Map.entry(TTBlocks.WAXED_OXIDIZED_COPPER_DOOR.get(), TTBlocks.OXIDIZED_COPPER_DOOR.get()),
+
+            Map.entry(TTBlocks.WAXED_COPPER_TRAPDOOR.get(), TTBlocks.COPPER_TRAPDOOR.get()),
+            Map.entry(TTBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR.get(), TTBlocks.EXPOSED_COPPER_TRAPDOOR.get()),
+            Map.entry(TTBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR.get(), TTBlocks.WEATHERED_COPPER_TRAPDOOR.get()),
+            Map.entry(TTBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR.get(), TTBlocks.OXIDIZED_COPPER_TRAPDOOR.get())
     );
 
     private static final Supplier<Map<Block, Block>> OXISCRAPE = () -> Map.ofEntries(
@@ -193,7 +212,11 @@ public class ItemUseHandler {
 
             Map.entry(TTBlocks.EXPOSED_COPPER_DOOR.get(), TTBlocks.COPPER_DOOR.get()),
             Map.entry(TTBlocks.WEATHERED_COPPER_DOOR.get(), TTBlocks.EXPOSED_COPPER_DOOR.get()),
-            Map.entry(TTBlocks.OXIDIZED_COPPER_DOOR.get(), TTBlocks.WEATHERED_COPPER_DOOR.get())
+            Map.entry(TTBlocks.OXIDIZED_COPPER_DOOR.get(), TTBlocks.WEATHERED_COPPER_DOOR.get()),
+
+            Map.entry(TTBlocks.EXPOSED_COPPER_TRAPDOOR.get(), TTBlocks.COPPER_TRAPDOOR.get()),
+            Map.entry(TTBlocks.WEATHERED_COPPER_TRAPDOOR.get(), TTBlocks.EXPOSED_COPPER_TRAPDOOR.get()),
+            Map.entry(TTBlocks.OXIDIZED_COPPER_TRAPDOOR.get(), TTBlocks.WEATHERED_COPPER_TRAPDOOR.get())
     );
 
     private static Block getWaxedBlock(Block block) {

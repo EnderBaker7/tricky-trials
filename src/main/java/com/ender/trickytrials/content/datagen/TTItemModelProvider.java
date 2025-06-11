@@ -66,5 +66,10 @@ public class TTItemModelProvider extends ItemModelProvider {
         withExistingParent(TTItems.EXPOSED_COPPER_TRAPDOOR.getId().getPath(), modLoc("block/exposed_copper_trapdoor_bottom"));
         withExistingParent(TTItems.WEATHERED_COPPER_TRAPDOOR.getId().getPath(), modLoc("block/weathered_copper_trapdoor_bottom"));
         withExistingParent(TTItems.OXIDIZED_COPPER_TRAPDOOR.getId().getPath(), modLoc("block/oxidized_copper_trapdoor_bottom"));
+
+        withExistingParent(TTItems.WAXED_COPPER_TRAPDOOR.getId().getPath(), modLoc("block/waxed_copper_trapdoor_bottom"));
+        withExistingParent(TTItems.WAXED_EXPOSED_COPPER_TRAPDOOR.getId().getPath(), modLoc("block/waxed_exposed_copper_trapdoor_bottom"));
+        withExistingParent(TTItems.WAXED_WEATHERED_COPPER_TRAPDOOR.getId().getPath(), modLoc("block/waxed_weathered_copper_trapdoor_bottom"));
+        withExistingParent(TTItems.WAXED_OXIDIZED_COPPER_TRAPDOOR.getId().getPath(), modLoc("block/waxed_oxidized_copper_trapdoor_bottom"));
     }
 }

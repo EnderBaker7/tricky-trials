@@ -61,6 +61,10 @@ public class TTItems {
     public static final RegistryObject<Item> EXPOSED_COPPER_TRAPDOOR = registerTrapdoorBlockItems("exposed_copper_trapdoor", TTBlocks.EXPOSED_COPPER_TRAPDOOR);
     public static final RegistryObject<Item> WEATHERED_COPPER_TRAPDOOR = registerTrapdoorBlockItems("weathered_copper_trapdoor", TTBlocks.WEATHERED_COPPER_TRAPDOOR);
     public static final RegistryObject<Item> OXIDIZED_COPPER_TRAPDOOR = registerTrapdoorBlockItems("oxidized_copper_trapdoor", TTBlocks.OXIDIZED_COPPER_TRAPDOOR);
+    public static final RegistryObject<Item> WAXED_COPPER_TRAPDOOR = registerTrapdoorBlockItems("waxed_copper_trapdoor", TTBlocks.WAXED_COPPER_TRAPDOOR);
+    public static final RegistryObject<Item> WAXED_EXPOSED_COPPER_TRAPDOOR = registerTrapdoorBlockItems("waxed_exposed_copper_trapdoor", TTBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR);
+    public static final RegistryObject<Item> WAXED_WEATHERED_COPPER_TRAPDOOR = registerTrapdoorBlockItems("waxed_weathered_copper_trapdoor", TTBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR);
+    public static final RegistryObject<Item> WAXED_OXIDIZED_COPPER_TRAPDOOR = registerTrapdoorBlockItems("waxed_oxidized_copper_trapdoor", TTBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR);
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

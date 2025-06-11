@@ -81,5 +81,14 @@
   "block.trickytrials.oxidized_copper_trapdoor": "Oxidized Copper Trapdoor",
   "item.trickytrials.oxidized_copper_trapdoor": "Oxidized Copper Trapdoor",
 
+  "block.trickytrials.waxed_copper_trapdoor": "Waxed Copper Trapdoor",
+  "item.trickytrials.waxed_copper_trapdoor": "Waxed Copper Trapdoor",
+  "block.trickytrials.waxed_exposed_copper_trapdoor": "Waxed Exposed Copper Trapdoor",
+  "item.trickytrials.waxed_exposed_copper_trapdoor": "Waxed Exposed Copper Trapdoor",
+  "block.trickytrials.waxed_weathered_copper_trapdoor": "Waxed Weathered Copper Trapdoor",
+  "item.trickytrials.waxed_weathered_copper_trapdoor": "Waxed Weathered Copper Trapdoor",
+  "block.trickytrials.waxed_oxidized_copper_trapdoor": "Waxed Oxidized Copper Trapdoor",
+  "item.trickytrials.waxed_oxidized_copper_trapdoor": "Waxed Oxidized Copper Trapdoor",
+
   "subtitles.block.copper_bulb.click": "Bulb clicks"
 }

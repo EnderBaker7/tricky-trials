@@ -64,6 +64,11 @@ public class TTCreative {
                         output.accept(TTItems.EXPOSED_COPPER_TRAPDOOR.get());
                         output.accept(TTItems.WEATHERED_COPPER_TRAPDOOR.get());
                         output.accept(TTItems.OXIDIZED_COPPER_TRAPDOOR.get());
+
+                        output.accept(TTItems.WAXED_COPPER_TRAPDOOR.get());
+                        output.accept(TTItems.WAXED_EXPOSED_COPPER_TRAPDOOR.get());
+                        output.accept(TTItems.WAXED_WEATHERED_COPPER_TRAPDOOR.get());
+                        output.accept(TTItems.WAXED_OXIDIZED_COPPER_TRAPDOOR.get());
                     })
                     .build());
 

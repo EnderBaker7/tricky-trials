@@ -62,7 +62,12 @@ public class TTBlockTagProvider extends BlockTagsProvider {
                         TTBlocks.COPPER_TRAPDOOR.get(),
                         TTBlocks.EXPOSED_COPPER_TRAPDOOR.get(),
                         TTBlocks.WEATHERED_COPPER_TRAPDOOR.get(),
-                        TTBlocks.OXIDIZED_COPPER_TRAPDOOR.get()
+                        TTBlocks.OXIDIZED_COPPER_TRAPDOOR.get(),
+
+                        TTBlocks.WAXED_COPPER_TRAPDOOR.get(),
+                        TTBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR.get(),
+                        TTBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR.get(),
+                        TTBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR.get()
                 );
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
@@ -110,7 +115,12 @@ public class TTBlockTagProvider extends BlockTagsProvider {
                         TTBlocks.COPPER_TRAPDOOR.get(),
                         TTBlocks.EXPOSED_COPPER_TRAPDOOR.get(),
                         TTBlocks.WEATHERED_COPPER_TRAPDOOR.get(),
-                        TTBlocks.OXIDIZED_COPPER_TRAPDOOR.get()
+                        TTBlocks.OXIDIZED_COPPER_TRAPDOOR.get(),
+
+                        TTBlocks.WAXED_COPPER_TRAPDOOR.get(),
+                        TTBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR.get(),
+                        TTBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR.get(),
+                        TTBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR.get()
                 );
     }
 }
