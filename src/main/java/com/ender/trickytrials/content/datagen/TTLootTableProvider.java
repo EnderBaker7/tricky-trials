@@ -73,6 +73,11 @@ public class TTLootTableProvider extends LootTableProvider {
             generateDoorLoot(TTBlocks.WAXED_EXPOSED_COPPER_DOOR);
             generateDoorLoot(TTBlocks.WAXED_WEATHERED_COPPER_DOOR);
             generateDoorLoot(TTBlocks.WAXED_OXIDIZED_COPPER_DOOR);
+
+            this.dropSelf(TTBlocks.COPPER_TRAPDOOR.get());
+            this.dropSelf(TTBlocks.EXPOSED_COPPER_TRAPDOOR.get());
+            this.dropSelf(TTBlocks.WEATHERED_COPPER_TRAPDOOR.get());
+            this.dropSelf(TTBlocks.OXIDIZED_COPPER_TRAPDOOR.get());
         }
 
         @Override

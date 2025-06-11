@@ -96,6 +96,14 @@ public class TTBlocks {
             () -> new BaseCopperDoorBlock(BlockBehaviour.Properties.copy(Blocks.WEATHERED_COPPER)));
     public static final RegistryObject<DoorBlock> WAXED_OXIDIZED_COPPER_DOOR = BLOCKS.register("waxed_oxidized_copper_door",
             () -> new BaseCopperDoorBlock(BlockBehaviour.Properties.copy(Blocks.OXIDIZED_COPPER)));
+    public static final RegistryObject<TrapDoorBlock> COPPER_TRAPDOOR = BLOCKS.register("copper_trapdoor",
+            () -> new CopperTrapdoorBlock(WeatheringLogic.WeatheringStage.UNAFFECTED, BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
+    public static final RegistryObject<TrapDoorBlock> EXPOSED_COPPER_TRAPDOOR = BLOCKS.register("exposed_copper_trapdoor",
+            () -> new CopperTrapdoorBlock(WeatheringLogic.WeatheringStage.EXPOSED, BlockBehaviour.Properties.copy(Blocks.EXPOSED_COPPER)));
+    public static final RegistryObject<TrapDoorBlock> WEATHERED_COPPER_TRAPDOOR = BLOCKS.register("weathered_copper_trapdoor",
+            () -> new CopperTrapdoorBlock(WeatheringLogic.WeatheringStage.WEATHERED, BlockBehaviour.Properties.copy(Blocks.WEATHERED_COPPER)));
+    public static final RegistryObject<TrapDoorBlock> OXIDIZED_COPPER_TRAPDOOR = BLOCKS.register("oxidized_copper_trapdoor",
+            () -> new CopperTrapdoorBlock(WeatheringLogic.WeatheringStage.OXIDIZED, BlockBehaviour.Properties.copy(Blocks.OXIDIZED_COPPER)));
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);

@@ -6,6 +6,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -17,6 +18,10 @@ public class TTItems {
     }
 
     public static RegistryObject<Item> registerDoorBlockItems(String name, RegistryObject<DoorBlock> block) {
+        return ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    }
+
+    public static RegistryObject<Item> registerTrapdoorBlockItems(String name, RegistryObject<TrapDoorBlock> block) {
         return ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
     public static final RegistryObject<Item> CHISELED_COPPER = registerBlockItems("chiseled_copper", TTBlocks.CHISELED_COPPER);
@@ -52,6 +57,10 @@ public class TTItems {
     public static final RegistryObject<Item> WAXED_EXPOSED_COPPER_DOOR = registerDoorBlockItems("waxed_exposed_copper_door", TTBlocks.WAXED_EXPOSED_COPPER_DOOR);
     public static final RegistryObject<Item> WAXED_WEATHERED_COPPER_DOOR = registerDoorBlockItems("waxed_weathered_copper_door", TTBlocks.WAXED_WEATHERED_COPPER_DOOR);
     public static final RegistryObject<Item> WAXED_OXIDIZED_COPPER_DOOR = registerDoorBlockItems("waxed_oxidized_copper_door", TTBlocks.WAXED_OXIDIZED_COPPER_DOOR);
+    public static final RegistryObject<Item> COPPER_TRAPDOOR = registerTrapdoorBlockItems("copper_trapdoor", TTBlocks.COPPER_TRAPDOOR);
+    public static final RegistryObject<Item> EXPOSED_COPPER_TRAPDOOR = registerTrapdoorBlockItems("exposed_copper_trapdoor", TTBlocks.EXPOSED_COPPER_TRAPDOOR);
+    public static final RegistryObject<Item> WEATHERED_COPPER_TRAPDOOR = registerTrapdoorBlockItems("weathered_copper_trapdoor", TTBlocks.WEATHERED_COPPER_TRAPDOOR);
+    public static final RegistryObject<Item> OXIDIZED_COPPER_TRAPDOOR = registerTrapdoorBlockItems("oxidized_copper_trapdoor", TTBlocks.OXIDIZED_COPPER_TRAPDOOR);
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

@@ -57,6 +57,9 @@ public class TTSoundEvents {
     public static final RegistryObject<SoundEvent> COPPER_DOOR_OPEN = registerSoundEvent("block.copper_door.open");
     public static final RegistryObject<SoundEvent> COPPER_DOOR_CLOSE = registerSoundEvent("block.copper_door.close");
 
+    public static final RegistryObject<SoundEvent> COPPER_TRAPDOOR_OPEN = registerSoundEvent("block.copper_trapdoor.open");
+    public static final RegistryObject<SoundEvent> COPPER_TRAPDOOR_CLOSE = registerSoundEvent("block.copper_trapdoor.close");
+
     public static void register(IEventBus eventBus) {
         SOUND_EVENTS.register(eventBus);
     }

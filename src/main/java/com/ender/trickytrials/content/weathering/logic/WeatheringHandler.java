@@ -1,14 +1,18 @@
 package com.ender.trickytrials.content.weathering.logic;
 
-import com.ender.trickytrials.content.BaseCopperBulbBlock;
-import com.ender.trickytrials.content.BaseCopperGrateBlock;
+import com.ender.trickytrials.content.weathering.CopperBulbBlock;
 import com.ender.trickytrials.content.weathering.CopperDoorBlock;
+import com.ender.trickytrials.content.weathering.CopperGrateBlock;
+import com.ender.trickytrials.content.weathering.CopperTrapdoorBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.block.state.properties.Half;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,10 +21,13 @@ public class WeatheringHandler {
     public static void handleOxidationTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random, WeatheringLogic blockLogic) {
         if (random.nextInt(1125) >= 64) return;
 
-        BooleanProperty lit = BaseCopperBulbBlock.LIT;
-        BooleanProperty bulbPowered = BaseCopperBulbBlock.POWERED;
+        BooleanProperty lit = BlockStateProperties.LIT;
+        BooleanProperty powered = BlockStateProperties.POWERED;
 
-        BooleanProperty waterlogged = BaseCopperGrateBlock.WATERLOGGED;
+        BooleanProperty waterlogged = BlockStateProperties.WATERLOGGED;
+
+        EnumProperty<Half> half = BlockStateProperties.HALF;
+        BooleanProperty open = BlockStateProperties.OPEN;
 
         BooleanProperty transitioning = CopperDoorBlock.TRANSITIONING;
 
@@ -48,12 +55,18 @@ public class WeatheringHandler {
         if (random.nextFloat() < oxidationChance) {
             Block next = WeatheringLogic.WeatheringStage.STAGE_MAP.get(currentBlock);
             if (next != null) {
-                if (blockLogic instanceof BaseCopperBulbBlock) {
+                if (blockLogic instanceof CopperBulbBlock) {
                     level.setBlock(pos, next.defaultBlockState()
                             .setValue(lit, state.getValue(lit))
-                            .setValue(bulbPowered, state.getValue(bulbPowered)), Block.UPDATE_ALL);
-                } else if (blockLogic instanceof BaseCopperGrateBlock) {
+                            .setValue(powered, state.getValue(powered)), Block.UPDATE_ALL);
+                } else if (blockLogic instanceof CopperGrateBlock) {
                     level.setBlock(pos, next.defaultBlockState()
+                            .setValue(waterlogged, state.getValue(waterlogged)), Block.UPDATE_ALL);
+                } else if (blockLogic instanceof CopperTrapdoorBlock) {
+                    level.setBlock(pos, next.defaultBlockState()
+                            .setValue(open, state.getValue(open))
+                            .setValue(half, state.getValue(half))
+                            .setValue(powered, state.getValue(powered))
                             .setValue(waterlogged, state.getValue(waterlogged)), Block.UPDATE_ALL);
                 } else if (blockLogic instanceof CopperDoorBlock) {
                     BlockPos topPos = pos.above();

@@ -140,5 +140,12 @@ public class TTRecipeProvider extends RecipeProvider {
         buildWaxedDoorRecipes(consumer, TTItems.WAXED_EXPOSED_COPPER_DOOR, TTItems.EXPOSED_COPPER_DOOR);
         buildWaxedDoorRecipes(consumer, TTItems.WAXED_WEATHERED_COPPER_DOOR, TTItems.WEATHERED_COPPER_DOOR);
         buildWaxedDoorRecipes(consumer, TTItems.WAXED_OXIDIZED_COPPER_DOOR, TTItems.OXIDIZED_COPPER_DOOR);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, TTItems.COPPER_TRAPDOOR.get(), 2)
+                .define('#', Items.COPPER_INGOT)
+                .pattern("###")
+                .pattern("###")
+                .unlockedBy("has_copper_ingot", has(Items.COPPER_INGOT))
+                .save(consumer);
     }
 }

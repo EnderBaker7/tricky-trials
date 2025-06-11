@@ -120,5 +120,23 @@
       "trickytrials:block/copper_door_toggle2",
       "trickytrials:block/copper_door_toggle3"
     ]
+  },
+  "block.copper_trapdoor.open": {
+    "subtitle": "subtitles.block.trapdoor.toggle",
+    "sounds": [
+      "trickytrials:block/copper_trapdoor_toggle1",
+      "trickytrials:block/copper_trapdoor_toggle2",
+      "trickytrials:block/copper_trapdoor_toggle3",
+      "trickytrials:block/copper_trapdoor_toggle4"
+    ]
+  },
+  "block.copper_trapdoor.close": {
+    "subtitle": "subtitles.block.trapdoor.toggle",
+    "sounds": [
+      "trickytrials:block/copper_trapdoor_toggle1",
+      "trickytrials:block/copper_trapdoor_toggle2",
+      "trickytrials:block/copper_trapdoor_toggle3",
+      "trickytrials:block/copper_trapdoor_toggle4"
+    ]
   }
 }

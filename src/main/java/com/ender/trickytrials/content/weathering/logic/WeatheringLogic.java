@@ -39,6 +39,10 @@ public interface WeatheringLogic {
             STAGE_MAP.put(TTBlocks.EXPOSED_COPPER_DOOR.get(), TTBlocks.WEATHERED_COPPER_DOOR.get());
             STAGE_MAP.put(TTBlocks.WEATHERED_COPPER_DOOR.get(), TTBlocks.OXIDIZED_COPPER_DOOR.get());
 
+            STAGE_MAP.put(TTBlocks.COPPER_TRAPDOOR.get(), TTBlocks.EXPOSED_COPPER_TRAPDOOR.get());
+            STAGE_MAP.put(TTBlocks.EXPOSED_COPPER_TRAPDOOR.get(), TTBlocks.WEATHERED_COPPER_TRAPDOOR.get());
+            STAGE_MAP.put(TTBlocks.WEATHERED_COPPER_TRAPDOOR.get(), TTBlocks.OXIDIZED_COPPER_TRAPDOOR.get());
+
             STAGE_LOOKUP.put(TTBlocks.CHISELED_COPPER.get(), UNAFFECTED);
             STAGE_LOOKUP.put(TTBlocks.EXPOSED_CHISELED_COPPER.get(), EXPOSED);
             STAGE_LOOKUP.put(TTBlocks.WEATHERED_CHISELED_COPPER.get(), WEATHERED);
@@ -53,6 +57,11 @@ public interface WeatheringLogic {
             STAGE_LOOKUP.put(TTBlocks.EXPOSED_COPPER_GRATE.get(), EXPOSED);
             STAGE_LOOKUP.put(TTBlocks.WEATHERED_COPPER_GRATE.get(), WEATHERED);
             STAGE_LOOKUP.put(TTBlocks.OXIDIZED_COPPER_GRATE.get(), OXIDIZED);
+
+            STAGE_LOOKUP.put(TTBlocks.COPPER_TRAPDOOR.get(), UNAFFECTED);
+            STAGE_LOOKUP.put(TTBlocks.EXPOSED_COPPER_TRAPDOOR.get(), EXPOSED);
+            STAGE_LOOKUP.put(TTBlocks.WEATHERED_COPPER_TRAPDOOR.get(), WEATHERED);
+            STAGE_LOOKUP.put(TTBlocks.OXIDIZED_COPPER_TRAPDOOR.get(), OXIDIZED);
         }
     }
 }

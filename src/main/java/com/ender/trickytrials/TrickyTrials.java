@@ -96,6 +96,11 @@ public class TrickyTrials {
                registerCutout(TTBlocks.WAXED_EXPOSED_COPPER_DOOR.get());
                registerCutout(TTBlocks.WAXED_WEATHERED_COPPER_DOOR.get());
                registerCutout(TTBlocks.WAXED_OXIDIZED_COPPER_DOOR.get());
+
+               registerCutout(TTBlocks.COPPER_TRAPDOOR.get());
+               registerCutout(TTBlocks.EXPOSED_COPPER_TRAPDOOR.get());
+               registerCutout(TTBlocks.WEATHERED_COPPER_TRAPDOOR.get());
+               registerCutout(TTBlocks.OXIDIZED_COPPER_TRAPDOOR.get());
             });
         }
     }
