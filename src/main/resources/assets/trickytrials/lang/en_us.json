@@ -97,5 +97,14 @@
   "block.trickytrials.tuff_wall": "Tuff Wall",
   "item.trickytrials.tuff_wall": "Tuff Wall",
 
+  "block.trickytrials.polished_tuff": "Polished Tuff",
+  "item.trickytrials.polished_tuff": "Polished Tuff",
+  "block.trickytrials.polished_tuff_stairs": "Polished Tuff Stairs",
+  "item.trickytrials.polished_tuff_stairs": "Polished Tuff Stairs",
+  "block.trickytrials.polished_tuff_slab": "Polished Tuff Slab",
+  "item.trickytrials.polished_tuff_slab": "Polished Tuff Slab",
+  "block.trickytrials.polished_tuff_wall": "Polished Tuff Wall",
+  "item.trickytrials.polished_tuff_wall": "Polished Tuff Wall",
+
   "subtitles.block.copper_bulb.click": "Bulb clicks"
 }

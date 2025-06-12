@@ -118,6 +118,14 @@ public class TTBlocks {
             () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
     public static final RegistryObject<WallBlock> TUFF_WALL = BLOCKS.register("tuff_wall",
             () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
+    public static final RegistryObject<Block> POLISHED_TUFF = BLOCKS.register("polished_tuff",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.TUFF)));
+    public static final RegistryObject<StairBlock> POLISHED_TUFF_STAIRS = BLOCKS.register("polished_tuff_stairs",
+            () -> new StairBlock(Blocks.TUFF::defaultBlockState, BlockBehaviour.Properties.copy(Blocks.TUFF)));
+    public static final RegistryObject<SlabBlock> POLISHED_TUFF_SLAB = BLOCKS.register("polished_tuff_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
+    public static final RegistryObject<WallBlock> POLISHED_TUFF_WALL = BLOCKS.register("polished_tuff_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
