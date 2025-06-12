@@ -67,7 +67,11 @@ public class TTBlockTagProvider extends BlockTagsProvider {
                         TTBlocks.WAXED_COPPER_TRAPDOOR.get(),
                         TTBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR.get(),
                         TTBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR.get(),
-                        TTBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR.get()
+                        TTBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR.get(),
+
+                        TTBlocks.TUFF_STAIRS.get(),
+                        TTBlocks.TUFF_SLAB.get(),
+                        TTBlocks.TUFF_WALL.get()
                 );
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
@@ -122,5 +126,8 @@ public class TTBlockTagProvider extends BlockTagsProvider {
                         TTBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR.get(),
                         TTBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR.get()
                 );
+        this.tag(BlockTags.WALLS).add(
+                TTBlocks.TUFF_WALL.get()
+        );
     }
 }

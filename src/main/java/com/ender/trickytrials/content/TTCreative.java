@@ -69,6 +69,10 @@ public class TTCreative {
                         output.accept(TTItems.WAXED_EXPOSED_COPPER_TRAPDOOR.get());
                         output.accept(TTItems.WAXED_WEATHERED_COPPER_TRAPDOOR.get());
                         output.accept(TTItems.WAXED_OXIDIZED_COPPER_TRAPDOOR.get());
+
+                        output.accept(TTItems.TUFF_STAIRS.get());
+                        output.accept(TTItems.TUFF_SLAB.get());
+                        output.accept(TTItems.TUFF_WALL.get());
                     })
                     .build());
 

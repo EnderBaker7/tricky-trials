@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Consumer;
@@ -82,6 +83,55 @@ public class TTRecipeProvider extends RecipeProvider {
                 .save(consumer, modLoc(result.getId().getPath() + "_from_honeycomb_crafting"));
     }
 
+    private static void buildStairRecipes(Consumer<FinishedRecipe> consumer, RegistryObject<Item> result) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result.get(), 4)
+                .define('#', Blocks.TUFF)
+                .pattern("#  ")
+                .pattern("## ")
+                .pattern("###")
+                .unlockedBy("has_tuff", has(Blocks.TUFF))
+                .save(consumer);
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TUFF), RecipeCategory.BUILDING_BLOCKS, result.get())
+                .unlockedBy("has_tuff", has(Blocks.TUFF))
+                .save(consumer, modLoc("tuff_stairs_from_tuff_stonecutting"));
+    }
+
+    private static void buildStairRecipes(Consumer<FinishedRecipe> consumer, RegistryObject<Item> result, RegistryObject<Item> ing) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result.get(), 4)
+                .define('#', ing.get())
+                .pattern("#  ")
+                .pattern("## ")
+                .pattern("###")
+                .unlockedBy("has_" + ing.getId().getPath(), has(ing.get()))
+                .save(consumer);
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ing.get()), RecipeCategory.BUILDING_BLOCKS, result.get())
+                .unlockedBy("has_" + ing.getId().getPath(), has(ing.get()))
+                .save(consumer, modLoc(result.getId().getPath() + "_from_" + ing.getId().getPath() + "_stonecutting"));
+    }
+
+    private static void buildSlabRecipes(Consumer<FinishedRecipe> consumer, RegistryObject<Item> result) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result.get(), 6)
+                .define('#', Blocks.TUFF)
+                .pattern("###")
+                .unlockedBy("has_tuff", has(Blocks.TUFF))
+                .save(consumer);
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TUFF), RecipeCategory.BUILDING_BLOCKS, result.get(), 2)
+                .unlockedBy("has_tuff", has(Blocks.TUFF))
+                .save(consumer, modLoc("tuff_slab_from_tuff_stonecutting"));
+    }
+
+    private static void buildWallRecipes(Consumer<FinishedRecipe> consumer, RegistryObject<Item> reuslt) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, reuslt.get(), 6)
+                .define('#', Blocks.TUFF)
+                .pattern("###")
+                .pattern("###")
+                .unlockedBy("has_tuff", has(Blocks.TUFF))
+                .save(consumer);
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TUFF), RecipeCategory.DECORATIONS, reuslt.get())
+                .unlockedBy("has_tuff", has(Blocks.TUFF))
+                .save(consumer, modLoc("tuff_wall_from_tuff_stonecutting"));
+    }
+
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         buildChiseledRecipes(consumer, TTItems.CHISELED_COPPER, Items.CUT_COPPER_SLAB, Items.COPPER_BLOCK, Items.CUT_COPPER, null, "");
@@ -143,5 +193,9 @@ public class TTRecipeProvider extends RecipeProvider {
         buildWaxedRecipes(consumer, TTItems.WAXED_EXPOSED_COPPER_TRAPDOOR, TTItems.EXPOSED_COPPER_TRAPDOOR);
         buildWaxedRecipes(consumer, TTItems.WAXED_WEATHERED_COPPER_TRAPDOOR, TTItems.WEATHERED_COPPER_TRAPDOOR);
         buildWaxedRecipes(consumer, TTItems.WAXED_OXIDIZED_COPPER_TRAPDOOR, TTItems.OXIDIZED_COPPER_TRAPDOOR);
+
+        buildStairRecipes(consumer, TTItems.TUFF_STAIRS);
+        buildSlabRecipes(consumer, TTItems.TUFF_SLAB);
+        buildWallRecipes(consumer, TTItems.TUFF_WALL);
     }
 }

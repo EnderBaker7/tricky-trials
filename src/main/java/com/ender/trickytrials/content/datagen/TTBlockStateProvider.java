@@ -79,5 +79,9 @@ public class TTBlockStateProvider extends BlockStateProvider {
         trapdoorBlock(TTBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR.get(), modLoc("block/exposed_copper_trapdoor"), true);
         trapdoorBlock(TTBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR.get(), modLoc("block/weathered_copper_trapdoor"), true);
         trapdoorBlock(TTBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR.get(), modLoc("block/oxidized_copper_trapdoor"), true);
+
+        stairsBlock(TTBlocks.TUFF_STAIRS.get(), mcLoc("block/tuff"));
+        slabBlock(TTBlocks.TUFF_SLAB.get(), mcLoc("block/tuff"), mcLoc("block/tuff"));
+        wallBlock(TTBlocks.TUFF_WALL.get(), mcLoc("block/tuff"));
     }
 }

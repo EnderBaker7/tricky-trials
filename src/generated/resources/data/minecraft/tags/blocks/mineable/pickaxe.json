@@ -39,6 +39,9 @@
     "trickytrials:waxed_copper_trapdoor",
     "trickytrials:waxed_exposed_copper_trapdoor",
     "trickytrials:waxed_weathered_copper_trapdoor",
-    "trickytrials:waxed_oxidized_copper_trapdoor"
+    "trickytrials:waxed_oxidized_copper_trapdoor",
+    "trickytrials:tuff_stairs",
+    "trickytrials:tuff_slab",
+    "trickytrials:tuff_wall"
   ]
 }

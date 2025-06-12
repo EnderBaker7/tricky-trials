@@ -7,6 +7,7 @@ import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraftforge.registries.RegistryObject;
@@ -30,6 +31,10 @@ public class TTLootTableProvider extends LootTableProvider {
 
         private void generateDoorLoot(RegistryObject<DoorBlock> pBlock) {
             this.add(pBlock.get(), block -> createSinglePropConditionTable(block, DoorBlock.HALF, DoubleBlockHalf.LOWER));
+        }
+
+        private void generateSlabLoot(RegistryObject<SlabBlock> pBlock) {
+            this.add(pBlock.get(), this::createSlabItemTable);
         }
 
         @Override
@@ -83,6 +88,10 @@ public class TTLootTableProvider extends LootTableProvider {
             this.dropSelf(TTBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR.get());
             this.dropSelf(TTBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR.get());
             this.dropSelf(TTBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR.get());
+
+            this.dropSelf(TTBlocks.TUFF_STAIRS.get());
+            generateSlabLoot(TTBlocks.TUFF_SLAB);
+            this.dropSelf(TTBlocks.TUFF_WALL.get());
         }
 
         @Override

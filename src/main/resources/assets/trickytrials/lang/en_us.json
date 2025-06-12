@@ -90,5 +90,12 @@
   "block.trickytrials.waxed_oxidized_copper_trapdoor": "Waxed Oxidized Copper Trapdoor",
   "item.trickytrials.waxed_oxidized_copper_trapdoor": "Waxed Oxidized Copper Trapdoor",
 
+  "block.trickytrials.tuff_stairs": "Tuff Stairs",
+  "item.trickytrials.tuff_stairs": "Tuff Stairs",
+  "block.trickytrials.tuff_slab": "Tuff Slab",
+  "item.trickytrials.tuff_slab": "Tuff Slab",
+  "block.trickytrials.tuff_wall": "Tuff Wall",
+  "item.trickytrials.tuff_wall": "Tuff Wall",
+
   "subtitles.block.copper_bulb.click": "Bulb clicks"
 }

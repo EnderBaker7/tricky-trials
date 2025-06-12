@@ -112,6 +112,12 @@ public class TTBlocks {
             () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.WEATHERED_COPPER).noOcclusion(), TTBlockSetTypes.COPPER));
     public static final RegistryObject<TrapDoorBlock> WAXED_OXIDIZED_COPPER_TRAPDOOR = BLOCKS.register("waxed_oxidized_copper_trapdoor",
             () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.OXIDIZED_COPPER).noOcclusion(), TTBlockSetTypes.COPPER));
+    public static final RegistryObject<StairBlock> TUFF_STAIRS = BLOCKS.register("tuff_stairs",
+            () -> new StairBlock(Blocks.TUFF::defaultBlockState, BlockBehaviour.Properties.copy(Blocks.TUFF)));
+    public static final RegistryObject<SlabBlock> TUFF_SLAB = BLOCKS.register("tuff_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
+    public static final RegistryObject<WallBlock> TUFF_WALL = BLOCKS.register("tuff_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
