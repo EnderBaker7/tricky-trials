@@ -85,5 +85,8 @@ public class TTItemModelProvider extends ItemModelProvider {
         withExistingParent(TTItems.TUFF_BRICK_STAIRS.getId().getPath(), modLoc("block/tuff_brick_stairs"));
         withExistingParent(TTItems.TUFF_BRICK_SLAB.getId().getPath(), modLoc("block/tuff_brick_slab"));
         wallInventory(TTItems.TUFF_BRICK_WALL.getId().getPath(), modLoc("block/tuff_bricks"));
+
+        withExistingParent(TTItems.CHISELED_TUFF.getId().getPath(), modLoc("block/chiseled_tuff"));
+        withExistingParent(TTItems.CHISELED_TUFF_BRICKS.getId().getPath(), modLoc("block/chiseled_tuff_bricks"));
     }
 }

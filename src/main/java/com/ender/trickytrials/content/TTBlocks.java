@@ -134,7 +134,10 @@ public class TTBlocks {
             () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
     public static final RegistryObject<WallBlock> TUFF_BRICK_WALL = BLOCKS.register("tuff_brick_wall",
             () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
-
+    public static final RegistryObject<RotatedPillarBlock> CHISELED_TUFF = BLOCKS.register("chiseled_tuff",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
+    public static final RegistryObject<RotatedPillarBlock> CHISELED_TUFF_BRICKS = BLOCKS.register("chiseled_tuff_bricks",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.TUFF)));
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
     }

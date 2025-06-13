@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "trickytrials:block/chiseled_tuff_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "trickytrials:block/chiseled_tuff"
+    },
+    "axis=z": {
+      "model": "trickytrials:block/chiseled_tuff_horizontal",
+      "x": 90
+    }
+  }
+}

@@ -50,6 +50,8 @@
     "trickytrials:tuff_bricks",
     "trickytrials:tuff_brick_stairs",
     "trickytrials:tuff_brick_slab",
-    "trickytrials:tuff_brick_wall"
+    "trickytrials:tuff_brick_wall",
+    "trickytrials:chiseled_tuff",
+    "trickytrials:chiseled_tuff_bricks"
   ]
 }

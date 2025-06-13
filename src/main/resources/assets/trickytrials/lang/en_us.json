@@ -115,5 +115,10 @@
   "block.trickytrials.tuff_brick_wall": "Tuff Brick Wall",
   "item.trickytrials.tuff_brick_wall": "Tuff Brick Wall",
 
+  "block.trickytrials.chiseled_tuff": "Chiseled Tuff",
+  "item.trickytrials.chiseled_tuff": "Chiseled Tuff",
+  "block.trickytrials.chiseled_tuff_bricks": "Chiseled Tuff Bricks",
+  "item.trickytrials.chiseled_tuff_bricks": "Chiseled Tuff Bricks",
+
   "subtitles.block.copper_bulb.click": "Bulb clicks"
 }

@@ -81,7 +81,10 @@ public class TTBlockTagProvider extends BlockTagsProvider {
                         TTBlocks.TUFF_BRICKS.get(),
                         TTBlocks.TUFF_BRICK_STAIRS.get(),
                         TTBlocks.TUFF_BRICK_SLAB.get(),
-                        TTBlocks.TUFF_BRICK_WALL.get()
+                        TTBlocks.TUFF_BRICK_WALL.get(),
+
+                        TTBlocks.CHISELED_TUFF.get(),
+                        TTBlocks.CHISELED_TUFF_BRICKS.get()
                 );
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)

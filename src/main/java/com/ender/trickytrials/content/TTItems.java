@@ -35,6 +35,10 @@ public class TTItems {
         return ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
+    private static RegistryObject<Item> registerPillarBlockItems(String name, RegistryObject<RotatedPillarBlock> block) {
+        return ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    }
+
     public static final RegistryObject<Item> CHISELED_COPPER = registerBlockItems("chiseled_copper", TTBlocks.CHISELED_COPPER);
     public static final RegistryObject<Item> EXPOSED_CHISELED_COPPER = registerBlockItems("exposed_chiseled_copper", TTBlocks.EXPOSED_CHISELED_COPPER);
     public static final RegistryObject<Item> WEATHERED_CHISELED_COPPER = registerBlockItems("weathered_chiseled_copper", TTBlocks.WEATHERED_CHISELED_COPPER);
@@ -93,6 +97,9 @@ public class TTItems {
     public static final RegistryObject<Item> TUFF_BRICK_STAIRS = registerStairBlockItems("tuff_brick_stairs", TTBlocks.TUFF_BRICK_STAIRS);
     public static final RegistryObject<Item> TUFF_BRICK_SLAB = registerSlabBlockItems("tuff_brick_slab", TTBlocks.TUFF_BRICK_SLAB);
     public static final RegistryObject<Item> TUFF_BRICK_WALL = registerWallBlockItems("tuff_brick_wall", TTBlocks.TUFF_BRICK_WALL);
+
+    public static final RegistryObject<Item> CHISELED_TUFF = registerPillarBlockItems("chiseled_tuff", TTBlocks.CHISELED_TUFF);
+    public static final RegistryObject<Item> CHISELED_TUFF_BRICKS = registerPillarBlockItems("chiseled_tuff_bricks", TTBlocks.CHISELED_TUFF_BRICKS);
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

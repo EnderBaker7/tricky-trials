@@ -83,6 +83,9 @@ public class TTCreative {
                         output.accept(TTItems.TUFF_BRICK_STAIRS.get());
                         output.accept(TTItems.TUFF_BRICK_SLAB.get());
                         output.accept(TTItems.TUFF_BRICK_WALL.get());
+
+                        output.accept(TTItems.CHISELED_TUFF.get());
+                        output.accept(TTItems.CHISELED_TUFF_BRICKS.get());
                     })
                     .build());
 

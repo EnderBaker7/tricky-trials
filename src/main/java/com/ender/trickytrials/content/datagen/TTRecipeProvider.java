@@ -105,6 +105,7 @@ public class TTRecipeProvider extends RecipeProvider {
         builder.save(consumer);
 
         for (ItemLike ing : ingList) {
+            if (getItemId(ing).getPath().contains("slab")) continue;
             SingleItemRecipeBuilder.stonecutting(Ingredient.of(ing), category, result, stCount)
                     .unlockedBy("has_" + getItemId(ing).getPath(), has(ing))
                     .save(consumer, modLoc(getItemId(result).getPath() + "_from_" + getItemId(ing).getPath() + "_stonecutting"));
@@ -206,5 +207,11 @@ public class TTRecipeProvider extends RecipeProvider {
                 RecipeCategory.DECORATIONS, List.of("###"), 6, 2);
         buildTuffRecipes(consumer, TTItems.TUFF_BRICK_WALL.get(), List.of(TTItems.TUFF_BRICKS.get(), TTItems.POLISHED_TUFF.get()),
                 RecipeCategory.DECORATIONS, List.of("###", "###"), 6, 1);
+
+        // Chiseled Tuff
+        buildTuffRecipes(consumer, TTItems.CHISELED_TUFF.get(), List.of(TTItems.TUFF_SLAB.get()),
+                RecipeCategory.DECORATIONS, List.of("#", "#"), 1, 1);
+        buildTuffRecipes(consumer, TTItems.CHISELED_TUFF_BRICKS.get(), List.of(TTItems.TUFF_BRICK_SLAB.get(), TTItems.POLISHED_TUFF.get(), TTItems.TUFF_BRICKS.get()),
+                RecipeCategory.DECORATIONS, List.of("#", "#"), 1, 1);
     }
 }

@@ -93,5 +93,8 @@ public class TTBlockStateProvider extends BlockStateProvider {
         stairsBlock(TTBlocks.TUFF_BRICK_STAIRS.get(), modLoc("block/tuff_bricks"));
         slabBlock(TTBlocks.TUFF_BRICK_SLAB.get(), modLoc("block/tuff_bricks"), modLoc("block/tuff_bricks"));
         wallBlock(TTBlocks.TUFF_BRICK_WALL.get(), modLoc("block/tuff_bricks"));
+
+        logBlock(TTBlocks.CHISELED_TUFF.get());
+        logBlock(TTBlocks.CHISELED_TUFF_BRICKS.get());
     }
 }
