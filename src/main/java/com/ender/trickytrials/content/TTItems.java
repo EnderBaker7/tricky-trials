@@ -89,6 +89,11 @@ public class TTItems {
     public static final RegistryObject<Item> POLISHED_TUFF_SLAB = registerSlabBlockItems("polished_tuff_slab", TTBlocks.POLISHED_TUFF_SLAB);
     public static final RegistryObject<Item> POLISHED_TUFF_WALL = registerWallBlockItems("polished_tuff_wall", TTBlocks.POLISHED_TUFF_WALL);
 
+    public static final RegistryObject<Item> TUFF_BRICKS = registerBlockItems("tuff_bricks", TTBlocks.TUFF_BRICKS);
+    public static final RegistryObject<Item> TUFF_BRICK_STAIRS = registerStairBlockItems("tuff_brick_stairs", TTBlocks.TUFF_BRICK_STAIRS);
+    public static final RegistryObject<Item> TUFF_BRICK_SLAB = registerSlabBlockItems("tuff_brick_slab", TTBlocks.TUFF_BRICK_SLAB);
+    public static final RegistryObject<Item> TUFF_BRICK_WALL = registerWallBlockItems("tuff_brick_wall", TTBlocks.TUFF_BRICK_WALL);
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

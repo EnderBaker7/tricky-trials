@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 2,
+  "count": 1,
   "ingredient": {
     "item": "minecraft:tuff"
   },
-  "result": "trickytrials:polished_tuff_slab"
+  "result": "trickytrials:tuff_brick_stairs"
 }

@@ -112,6 +112,25 @@ public class TTRecipeProvider extends RecipeProvider {
                 .save(consumer, modLoc(result.getId().getPath() + "_from_tuff_stonecutting"));
     }
 
+    private static void buildStairRecipes(Consumer<FinishedRecipe> consumer, RegistryObject<Item> result, RegistryObject<Item> ing, RegistryObject<Item> ing2) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, result.get(), 4)
+                .define('#', ing.get())
+                .pattern("#  ")
+                .pattern("## ")
+                .pattern("###")
+                .unlockedBy("has_" + ing.getId().getPath(), has(ing.get()))
+                .save(consumer);
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ing.get()), RecipeCategory.DECORATIONS, result.get())
+                .unlockedBy("has_" + ing.getId().getPath(), has(ing.get()))
+                .save(consumer, modLoc(result.getId().getPath() + "_from_" + ing.getId().getPath() + "_stonecutting"));
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ing2.get()), RecipeCategory.DECORATIONS, result.get())
+                .unlockedBy("has_" + ing2.getId().getPath(), has(ing2.get()))
+                .save(consumer, modLoc(result.getId().getPath() + "_from_" + ing2.getId().getPath() + "_stonecutting"));
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TUFF), RecipeCategory.DECORATIONS, result.get())
+                .unlockedBy("has_tuff", has(Blocks.TUFF))
+                .save(consumer, modLoc(result.getId().getPath() + "_from_tuff_stonecutting"));
+    }
+
     private static void buildSlabRecipes(Consumer<FinishedRecipe> consumer) {
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, TTItems.TUFF_SLAB.get(), 6)
                 .define('#', Blocks.TUFF)
@@ -132,7 +151,24 @@ public class TTRecipeProvider extends RecipeProvider {
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ing.get()), RecipeCategory.DECORATIONS, result.get(), 2)
                 .unlockedBy("has_" + ing.getId().getPath(), has(ing.get()))
                 .save(consumer, modLoc( result.getId().getPath() + "_from_" + ing.getId().getPath() + "_stonecutting"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TUFF), RecipeCategory.DECORATIONS, result.get())
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TUFF), RecipeCategory.DECORATIONS, result.get(), 2)
+                .unlockedBy("has_tuff", has(Blocks.TUFF))
+                .save(consumer, modLoc(result.getId().getPath() + "_from_tuff_stonecutting"));
+    }
+
+    private static void buildSlabRecipes(Consumer<FinishedRecipe> consumer, RegistryObject<Item> result, RegistryObject<Item> ing, RegistryObject<Item> ing2) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, result.get(), 6)
+                .define('#', ing.get())
+                .pattern("###")
+                .unlockedBy("has_" + ing.getId().getPath(), has(ing.get()))
+                .save(consumer);
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ing.get()), RecipeCategory.DECORATIONS, result.get(), 2)
+                .unlockedBy("has_" + ing.getId().getPath(), has(ing.get()))
+                .save(consumer, modLoc( result.getId().getPath() + "_from_" + ing.getId().getPath() + "_stonecutting"));
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ing2.get()), RecipeCategory.DECORATIONS, result.get(), 2)
+                .unlockedBy("has_" + ing2.getId().getPath(), has(ing2.get()))
+                .save(consumer, modLoc( result.getId().getPath() + "_from_" + ing2.getId().getPath() + "_stonecutting"));
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TUFF), RecipeCategory.DECORATIONS, result.get(), 2)
                 .unlockedBy("has_tuff", has(Blocks.TUFF))
                 .save(consumer, modLoc(result.getId().getPath() + "_from_tuff_stonecutting"));
     }
@@ -164,6 +200,24 @@ public class TTRecipeProvider extends RecipeProvider {
                 .save(consumer, modLoc(result.getId().getPath() + "_from_tuff_stonecutting"));
     }
 
+    private static void buildWallRecipes(Consumer<FinishedRecipe> consumer, RegistryObject<Item> result, RegistryObject<Item> ing, RegistryObject<Item> ing2) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, result.get(), 6)
+                .define('#', ing.get())
+                .pattern("###")
+                .pattern("###")
+                .unlockedBy("has_" + ing.getId().getPath(), has(ing.get()))
+                .save(consumer);
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ing.get()), RecipeCategory.DECORATIONS, result.get())
+                .unlockedBy("has_" + ing.getId().getPath(), has(ing.get()))
+                .save(consumer, modLoc( result.getId().getPath() + "_from_" + ing.getId().getPath() + "_stonecutting"));
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ing2.get()), RecipeCategory.DECORATIONS, result.get())
+                .unlockedBy("has_" + ing2.getId().getPath(), has(ing2.get()))
+                .save(consumer, modLoc( result.getId().getPath() + "_from_" + ing2.getId().getPath() + "_stonecutting"));
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TUFF), RecipeCategory.DECORATIONS, result.get())
+                .unlockedBy("has_tuff", has(Blocks.TUFF))
+                .save(consumer, modLoc(result.getId().getPath() + "_from_tuff_stonecutting"));
+    }
+
     private static void build2x2Recipes(Consumer<FinishedRecipe> consumer) {
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, TTItems.POLISHED_TUFF.get(), 4)
                 .define('#', Blocks.TUFF)
@@ -174,6 +228,21 @@ public class TTRecipeProvider extends RecipeProvider {
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TUFF), RecipeCategory.DECORATIONS, TTItems.POLISHED_TUFF.get())
                 .unlockedBy("has_tuff", has(Blocks.TUFF))
                 .save(consumer, modLoc("polished_tuff_from_tuff_stonecutting"));
+    }
+
+    private static void build2x2Recipes(Consumer<FinishedRecipe> consumer, RegistryObject<Item> result, RegistryObject<Item> ing) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, result.get(), 4)
+                .define('#', ing.get())
+                .pattern("##")
+                .pattern("##")
+                .unlockedBy("has_" + ing.getId().getPath(), has(ing.get()))
+                .save(consumer);
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ing.get()), RecipeCategory.DECORATIONS, result.get())
+                .unlockedBy("has_" + ing.getId().getPath(), has(ing.get()))
+                .save(consumer, modLoc( result.getId().getPath() + "_from_" + ing.getId().getPath() + "_stonecutting"));
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TUFF), RecipeCategory.DECORATIONS, result.get())
+                .unlockedBy("has_tuff", has(Blocks.TUFF))
+                .save(consumer, modLoc( result.getId().getPath() + "_from_tuff_stonecutting"));
     }
 
     @Override
@@ -246,5 +315,10 @@ public class TTRecipeProvider extends RecipeProvider {
         buildStairRecipes(consumer, TTItems.POLISHED_TUFF_STAIRS, TTItems.POLISHED_TUFF);
         buildSlabRecipes(consumer, TTItems.POLISHED_TUFF_SLAB, TTItems.POLISHED_TUFF);
         buildWallRecipes(consumer, TTItems.POLISHED_TUFF_WALL, TTItems.POLISHED_TUFF);
+
+        build2x2Recipes(consumer, TTItems.TUFF_BRICKS, TTItems.POLISHED_TUFF);
+        buildStairRecipes(consumer, TTItems.TUFF_BRICK_STAIRS, TTItems.TUFF_BRICKS, TTItems.POLISHED_TUFF);
+        buildSlabRecipes(consumer, TTItems.TUFF_BRICK_SLAB, TTItems.TUFF_BRICKS, TTItems.POLISHED_TUFF);
+        buildWallRecipes(consumer, TTItems.TUFF_BRICK_WALL, TTItems.TUFF_BRICKS, TTItems.POLISHED_TUFF);
     }
 }

@@ -76,7 +76,12 @@ public class TTBlockTagProvider extends BlockTagsProvider {
                         TTBlocks.POLISHED_TUFF.get(),
                         TTBlocks.POLISHED_TUFF_STAIRS.get(),
                         TTBlocks.POLISHED_TUFF_SLAB.get(),
-                        TTBlocks.POLISHED_TUFF_WALL.get()
+                        TTBlocks.POLISHED_TUFF_WALL.get(),
+
+                        TTBlocks.TUFF_BRICKS.get(),
+                        TTBlocks.TUFF_BRICK_STAIRS.get(),
+                        TTBlocks.TUFF_BRICK_SLAB.get(),
+                        TTBlocks.TUFF_BRICK_WALL.get()
                 );
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
@@ -133,7 +138,8 @@ public class TTBlockTagProvider extends BlockTagsProvider {
                 );
         this.tag(BlockTags.WALLS).add(
                 TTBlocks.TUFF_WALL.get(),
-                TTBlocks.POLISHED_TUFF_WALL.get()
+                TTBlocks.POLISHED_TUFF_WALL.get(),
+                TTBlocks.TUFF_BRICK_WALL.get()
         );
     }
 }

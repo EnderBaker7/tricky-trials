@@ -97,6 +97,11 @@ public class TTLootTableProvider extends LootTableProvider {
             this.dropSelf(TTBlocks.POLISHED_TUFF_STAIRS.get());
             generateSlabLoot(TTBlocks.POLISHED_TUFF_SLAB);
             this.dropSelf(TTBlocks.POLISHED_TUFF_WALL.get());
+
+            this.dropSelf(TTBlocks.TUFF_BRICKS.get());
+            this.dropSelf(TTBlocks.TUFF_BRICK_STAIRS.get());
+            generateSlabLoot(TTBlocks.TUFF_BRICK_SLAB);
+            this.dropSelf(TTBlocks.TUFF_BRICK_WALL.get());
         }
 
         @Override

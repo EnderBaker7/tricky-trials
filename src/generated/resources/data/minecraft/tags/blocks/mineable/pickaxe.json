@@ -46,6 +46,10 @@
     "trickytrials:polished_tuff",
     "trickytrials:polished_tuff_stairs",
     "trickytrials:polished_tuff_slab",
-    "trickytrials:polished_tuff_wall"
+    "trickytrials:polished_tuff_wall",
+    "trickytrials:tuff_bricks",
+    "trickytrials:tuff_brick_stairs",
+    "trickytrials:tuff_brick_slab",
+    "trickytrials:tuff_brick_wall"
   ]
 }
